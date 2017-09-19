@@ -37,11 +37,11 @@ CREATE TABLE address (
 );
 
 CREATE TABLE federal_laws (
-
-);
-
-CREATE TABLE state_laws (
-
+  id SERIAL PRIMARY KEY,
+  title text NOT NULL,
+  url text NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT now(),
+  updated_at TIMESTAMP NOT NULL DEFAULT now()
 );
 
 CREATE TABLE forum_comment (
@@ -54,12 +54,10 @@ CREATE TABLE thread (
   id SERIAL PRIMARY KEY,
   name text NOT NULL,
   starter_text text,
-  comments int REFERENCES forum_comment(id)
+  comments INT REFERENCES forum_comment(id)
 );
 
 CREATE TABLE discussions (
   id SERIAL PRIMARY KEY,
-  threads int REFERENCES thread(id)
+  threads INT REFERENCES thread(id)
 );
-
-
