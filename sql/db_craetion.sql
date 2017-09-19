@@ -8,14 +8,6 @@ DROP TABLE IF EXISTS discussions;
 DROP TABLE IF EXISTS thread;
 DROP TABLE IF EXISTS forum_post;
 
-CREATE TABLE user (
-  id SERIAL PRIMARY KEY,
-  first_name text NOT NULL,
-  last_name text NOT NULL,
-  password text NULL, -- Can be null if social login is used
-  created_at TIMESTAMP NOT NULL DEFAULT now(),
-  updated_at TIMESTAMP NOT NULL DEFAULT now()
-);
 
 CREATE TABLE role (
   id SERIAL PRIMARY KEY
@@ -31,9 +23,19 @@ CREATE TABLE address (
   street_2 text,
   city text NOT NULL,
   state text NOT NULL,
-  postal_code text,
+  postal_code text NOT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT now(),
   updated_at TIMESTAMP NOT NULL DEFAULT now()
+);
+
+CREATE TABLE user (
+id SERIAL PRIMARY KEY,
+first_name text NOT NULL,
+last_name text NOT NULL,
+password text NULL, -- Can be null if social login is used
+address INT REFERENCES address(id)
+created_at TIMESTAMP NOT NULL DEFAULT now(),
+updated_at TIMESTAMP NOT NULL DEFAULT now()
 );
 
 CREATE TABLE federal_laws (
