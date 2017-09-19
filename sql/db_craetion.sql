@@ -19,43 +19,43 @@ CREATE TABLE role_permission (
 
 CREATE TABLE address (
   id SERIAL PRIMARY KEY,
-  street_1 text,
-  street_2 text,
-  city text NOT NULL,
-  state text NOT NULL,
-  postal_code text NOT NULL,
+  street_1 VARCHAR(80),
+  street_2 VARCHAR(80),
+  city TEXT NOT NULL,
+  state TEXT NOT NULL,
+  postal_code VARCHAR(5) NOT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT now(),
   updated_at TIMESTAMP NOT NULL DEFAULT now()
 );
 
 CREATE TABLE user (
-id SERIAL PRIMARY KEY,
-first_name text NOT NULL,
-last_name text NOT NULL,
-password text NULL, -- Can be null if social login is used
-address INT REFERENCES address(id)
-created_at TIMESTAMP NOT NULL DEFAULT now(),
-updated_at TIMESTAMP NOT NULL DEFAULT now()
+  id SERIAL PRIMARY KEY,
+  first_name VARCHAR(20) NOT NULL,
+  last_name VARCHAR(20) NOT NULL,
+  password VARCHAR(50) NOT NULL, -- Can be null if social login is used
+  address INT REFERENCES address(id)
+  created_at TIMESTAMP NOT NULL DEFAULT now(),
+  updated_at TIMESTAMP NOT NULL DEFAULT now()
 );
 
 CREATE TABLE federal_laws (
   id SERIAL PRIMARY KEY,
-  title text NOT NULL,
-  url text NOT NULL,
+  title VARCHAR(100) NOT NULL,
+  url TEXT NOT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT now(),
   updated_at TIMESTAMP NOT NULL DEFAULT now()
 );
 
 CREATE TABLE forum_comment (
   id SERIAL PRIMARY KEY,
-  author int REFERENCES user(id),
-  content text NOT NULL
+  author INT REFERENCES user(id),
+  content TEXT NOT NULL
 );
 
 CREATE TABLE thread (
   id SERIAL PRIMARY KEY,
-  name text NOT NULL,
-  starter_text text,
+  title VARCHAR(100) NOT NULL,
+  starter_text TEXT,
   comments INT REFERENCES forum_comment(id)
 );
 
