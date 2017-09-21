@@ -6,6 +6,17 @@ CREATE TABLE role_permission (
   id SERIAL PRIMARY KEY
 );
 
+CREATE TABLE "user" (
+  id SERIAL PRIMARY KEY,
+  username VARCHAR(20) NOT NULL,
+  first_name VARCHAR(20) NOT NULL,
+  last_name VARCHAR(20) NOT NULL,
+  password VARCHAR(50) NOT NULL, -- Can be null if social login is used
+  uuid uuid NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT now(),
+  updated_at TIMESTAMP NOT NULL DEFAULT now()
+);
+
 CREATE TABLE address (
   id SERIAL PRIMARY KEY,
   street_1 VARCHAR(80),
@@ -13,21 +24,11 @@ CREATE TABLE address (
   city TEXT NOT NULL,
   state TEXT NOT NULL,
   postal_code VARCHAR(5) NOT NULL,
+  belongs_to INT REFERENCES "user"(id),
   created_at TIMESTAMP NOT NULL DEFAULT now(),
   updated_at TIMESTAMP NOT NULL DEFAULT now()
 );
 
-CREATE TABLE "user" (
-  id SERIAL PRIMARY KEY,
-  username VARCHAR(20) NOT NULL,
-  first_name VARCHAR(20) NOT NULL,
-  last_name VARCHAR(20) NOT NULL,
-  password VARCHAR(50) NOT NULL, -- Can be null if social login is used
-  address INT REFERENCES address(id),
-  uuid uuid NOT NULL,
-  created_at TIMESTAMP NOT NULL DEFAULT now(),
-  updated_at TIMESTAMP NOT NULL DEFAULT now()
-);
 
 CREATE TABLE federal_law (
   id SERIAL PRIMARY KEY,
