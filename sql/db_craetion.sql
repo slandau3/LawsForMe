@@ -1,14 +1,3 @@
-DROP TABLE IF EXISTS user;
-DROP TABLE IF EXISTS role;
-DROP TABLE IF EXISTS role_permission;
-DROP TABLE IF EXISTS address;
-DROP TABLE IF EXISTS federal_laws;
-DROP TABLE IF EXISTS state_laws;
-DROP TABLE IF EXISTS discussions;
-DROP TABLE IF EXISTS thread;
-DROP TABLE IF EXISTS forum_post;
-
-
 CREATE TABLE role (
   id SERIAL PRIMARY KEY
 );
@@ -28,17 +17,19 @@ CREATE TABLE address (
   updated_at TIMESTAMP NOT NULL DEFAULT now()
 );
 
-CREATE TABLE user (
+CREATE TABLE "user" (
   id SERIAL PRIMARY KEY,
+  username VARCHAR(20) NOT NULL,
   first_name VARCHAR(20) NOT NULL,
   last_name VARCHAR(20) NOT NULL,
   password VARCHAR(50) NOT NULL, -- Can be null if social login is used
-  address INT REFERENCES address(id)
+  address INT REFERENCES address(id),
+  uuid uuid NOT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT now(),
   updated_at TIMESTAMP NOT NULL DEFAULT now()
 );
 
-CREATE TABLE federal_laws (
+CREATE TABLE federal_law (
   id SERIAL PRIMARY KEY,
   title VARCHAR(100) NOT NULL,
   url TEXT NOT NULL,
@@ -46,20 +37,31 @@ CREATE TABLE federal_laws (
   updated_at TIMESTAMP NOT NULL DEFAULT now()
 );
 
-CREATE TABLE forum_comment (
+CREATE TABLE discussion (
   id SERIAL PRIMARY KEY,
-  author INT REFERENCES user(id),
-  content TEXT NOT NULL
+  title VARCHAR(100) NOT NULL,
+  thread_permission_req INT NOT NULL DEFAULT 0, -- permission level needed to create a thread
+  created_at TIMESTAMP NOT NULL DEFAULT now(),
+  updated_at TIMESTAMP NOT NULL DEFAULT now()
 );
 
 CREATE TABLE thread (
   id SERIAL PRIMARY KEY,
   title VARCHAR(100) NOT NULL,
+  discussion_id INT NOT NULL REFERENCES discussion(id),
+  comment_permission_req INT NOT NULL DEFAULT 0,
+  view_permission_req INT NOT NULL DEFAULT 0,
   starter_text TEXT,
-  comments INT REFERENCES forum_comment(id)
+  created_at TIMESTAMP NOT NULL DEFAULT now(),
+  updated_at TIMESTAMP NOT NULL DEFAULT now()
 );
 
-CREATE TABLE discussions (
+
+CREATE TABLE forum_comment (
   id SERIAL PRIMARY KEY,
-  threads INT REFERENCES thread(id)
+  author INT REFERENCES "user"(id),
+  content TEXT NOT NULL,
+  thread_id INT NOT NULL REFERENCES thread(id),
+  created_at TIMESTAMP NOT NULL DEFAULT now(),
+  updated_at TIMESTAMP NOT NULL DEFAULT now()
 );
