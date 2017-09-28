@@ -1,0 +1,7 @@
+digraph {
+    subgraph cluster_0 {
+        user->account[label="creates an"]
+        account->{address identity}
+    }
+}
+
