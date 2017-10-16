@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+// DECLARE A ROUTE FILE
 var index = require('./routes/index');
 var users = require('./routes/users');
 var login = require('./routes/login');
@@ -23,6 +24,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// LINK THE ROUTE FILE TO A ROUTE
 app.use('/', index);
 app.use('/users', users);
 app.use('/login', login);
