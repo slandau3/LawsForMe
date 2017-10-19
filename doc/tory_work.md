@@ -29,6 +29,8 @@ The fields the create account page should have are as follows, starred fields ar
 8. Postal code - can be left empty, the zip code of the user.
 9. Interests - Text field where the user inputs their interests which should be seperated by commas. It might be beneficial to show a red mark on invalid interests (interests that return no results). More on this later.
 
+Please call the html file ```createAccount.html```
+
 ### POST Data
 #### To Server
 The data posted to the server is a map linking attribute names to the value the user inputted. In HTML, when you specify the fields such as "username", you need to add another attribute inside the opening tag. Ex for username: 

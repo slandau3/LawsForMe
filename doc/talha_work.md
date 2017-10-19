@@ -21,6 +21,8 @@ There should also be a link to account recovery (to be implemented) and a link t
 
 Upon submission of the form. The form should post to "/login/".
 
+Please call the html file ```login.html```
+
 ### Communicating with server
 When the user submits the information to the server the server will either return data in JSON format indicating what the error was or the user will be redirected (which you don't have to worry about). You may display the error message in any way you see fit. 
 
