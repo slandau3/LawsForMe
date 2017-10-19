@@ -60,7 +60,7 @@ acronym, .titleTip {
 }
 
 .headerTitle > a {
-  font-size: 138%;  /* For fully standards-compliant user agents */
+  font-size: 200%;  /* For fully standards-compliant user agents */
 }
 
 .headerTitle span {
@@ -90,6 +90,7 @@ acronym, .titleTip {
 .subHeader a:hover {
   color: black;
   background-color: white;
+  transition: all 1000ms ease;
 }
 
 
