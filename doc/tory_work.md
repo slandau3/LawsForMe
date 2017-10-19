@@ -6,6 +6,7 @@ Tory's current job is to create a page that specializes in account creation.
 ### Page specification 
 The fields the create account page should have are as follows, starred fields are required
 
+|-------------|
 | Field Name  |
 |-------------|
 | Username    |
@@ -46,7 +47,7 @@ The data posted to the server is a map linking attribute names to the value the 
 ```
 . The name for all the fields should be as follows:
 
-
+|-------------+------------|
 | field       | name arg   |
 |-------------+------------|
 | Username    | username   |
