@@ -33,7 +33,7 @@ CREATE TABLE address (
 CREATE TABLE federal_law (
   id SERIAL PRIMARY KEY,
   title VARCHAR(100) NOT NULL,
-  url TEXT NOT NULL,
+  content TEXT NOT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT now(),
   updated_at TIMESTAMP NOT NULL DEFAULT now()
 );

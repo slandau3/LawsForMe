@@ -1,40 +1,6 @@
-# import scrapy
 import requests
 import psycopg2
 from bs4 import BeautifulSoup
-# import sys
-# import threading
-
-# lock = threading.Lock()
-
-# class Lawyer(scrapy.Spider):
-    # name = 'lawyer'
-    # start_urls = ['https://en.wikipedia.org/wiki/List_of_United_States_federal_legislation,_2001%E2%80%93present']
-
-    # def parse(self, response):
-        # self.conn = psycopg2.connect("dbname='p32004b' user='p32004b' host='reddwarf.cs.rit.edu' password='Ahx5peeyaeCh1chiingi'")
-        # self.curr = self.conn.cursor()
-        # print ( self.curr.execute("select * from federal_law") )
-        # for law in response.xpath("//div/div/div[@id='mw-content-text']/div/ul/li"):
-            # link = law.css('a ::attr(href)').extract_first()
-            # yield response.follow("https://en.wikipedia.org" + link, callback=self.parse2)
-
-        # # self.curr.close()
-        # # self.conn.close()
-
-    # def parse2(self, response):
-        # title = response.xpath("//div/h1").css('h1 ::text').extract()
-        # everything_else = response.xpath("//div/div[@id='bodyContent']").css('div ::text').extract()
-        # with lock:
-            # self.curr.execute("INSERT INTO federal_law VALUES (%s, %s)",  (title[0], everything_else[0].strip()))
-            # self.conn.commit()
-        
-        # yield {}
-        # # yield {"title" : title,
-                # # "body" : everything_else}
-
-
-# TODO: fuck scrappy. tomrrow make a real web crawler with bs4 and requrests
 
 conn = psycopg2.connect("dbname='p32004b' user='p32004b' host='reddwarf.cs.rit.edu' password='Ahx5peeyaeCh1chiingi'")
 curr = conn.cursor()
