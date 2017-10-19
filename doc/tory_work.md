@@ -6,6 +6,7 @@ Tory's current job is to create a page that specializes in account creation.
 ### Page specification 
 The fields the create account page should have are as follows, starred fields are required
 
+
 | \*Username  |
 | \*Password  |
 | Email       |
@@ -35,6 +36,7 @@ The data posted to the server is a map linking attribute names to the value the 
 ```
 . The name for all the fields should be as follows:
 
+
 | field       | name arg   |
 |-------------+------------|
 | Username    | username   |
@@ -50,8 +52,10 @@ The data posted to the server is a map linking attribute names to the value the 
 The server should respond with a JSON map (which you will need to parse using javascript). The map will contain names of fields as a key and the error message that should be displayed as the related value. Ex:
 ```json
 {
-    {"username" : "Username cannot be left empty.",
-    "password" : "Password must be greater than 8 characters and contain at least one special character."}
+    {
+    "username" : "Username cannot be left empty.",
+    "password" : "Password must be greater than 8 characters and contain at least one special character."
+    }
 }
 ```
 
