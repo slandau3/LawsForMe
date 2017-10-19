@@ -6,16 +6,26 @@ Tory's current job is to create a page that specializes in account creation.
 ### Page specification 
 The fields the create account page should have are as follows, starred fields are required
 
-
+| Field Name  |
+|-------------|
 | Username    |
+|-------------|
 | Password    |
+|-------------|
 | Email       |
+|-------------|
 | State       |
+|-------------|
 | City        |
+|-------------|
 | Street      |
+|-------------|
 | Street 2    |
+|-------------|
 | Postal code |
+|-------------|
 | Interests   |
+|-------------|
 
 
 1. Username - text input that cannot be empty and must be unique
@@ -40,13 +50,21 @@ The data posted to the server is a map linking attribute names to the value the 
 | field       | name arg   |
 |-------------+------------|
 | Username    | username   |
+|-------------+------------|
 | Password    | password   |
+|-------------+------------|
 | Email       | email      |
+|-------------+------------|
 | State       | state      |
+|-------------+------------|
 | Street      | street     |
+|-------------+------------|
 | Street 2    | street2    |
+|-------------+------------|
 | Postal code | postalCode |
+|-------------+------------|
 | Interests   | interests  |
+|-------------+------------|
 
 #### From Server
 The server should respond with a JSON map (which you will need to parse using javascript). The map will contain names of fields as a key and the error message that should be displayed as the related value. Ex:
