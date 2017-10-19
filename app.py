@@ -17,5 +17,9 @@ def login():
         raise NotImplemented()
 
 
+@app.route('/createAccount/', methods = ['GET', 'POST'])
+def create_account():
+		return render_template('createAccount.html', author="Tory", name="steven")
+		
 if __name__ == '__main__':
     app.run(debug=True)
