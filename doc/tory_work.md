@@ -52,10 +52,8 @@ The data posted to the server is a map linking attribute names to the value the 
 The server should respond with a JSON map (which you will need to parse using javascript). The map will contain names of fields as a key and the error message that should be displayed as the related value. Ex:
 ```JSON
 {
-    {
     "username" : "Username cannot be left empty.",
     "password" : "Password must be greater than 8 characters and contain at least one special character."
-    }
 }
 ```
 
