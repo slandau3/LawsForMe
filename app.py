@@ -1,4 +1,4 @@
-import business_logic.login.login as login
+import business_logic.account.account as account
 import json
 from flask import Flask, session, render_template, request, Response, redirect
 app = Flask(__name__)
@@ -8,11 +8,11 @@ app.secret_key = "secret key"
 
 @app.route('/')
 def hello_word():
-    login.validate()
+    account.validate()
     return render_template('home.html', user="steven")
 
-@app.route('/login/', methods = ['GET', 'POST'])
-def login():
+@app.route('/account/', methods = ['GET', 'POST'])
+def account():
     """
     TODO
     """
@@ -22,9 +22,9 @@ def login():
         password = request.form['password']
 
         # actually validate the credentials
-        login_attemp = login.validate(username, password)
+        login_attempt = account.validate(username, password)
 
-        if login_attemp['success']:
+        if login_attempt['success']:
             return redirect("/") # TODO: Figure out where we actually want to redirect them
         else:
             # An error has occured, we need to respond to the request with details 
