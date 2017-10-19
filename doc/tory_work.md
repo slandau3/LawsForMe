@@ -7,15 +7,15 @@ Tory's current job is to create a page that specializes in account creation.
 The fields the create account page should have are as follows, starred fields are required
 
 
-| *Username   |
-| *Password   |
+| Username    |
+| Password    |
 | Email       |
 | State       |
 | City        |
 | Street      |
 | Street 2    |
 | Postal code |
-| *Interests  |
+| Interests   |
 
 
 1. Username - text input that cannot be empty and must be unique
