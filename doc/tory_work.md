@@ -48,6 +48,8 @@ The data posted to the server is a map linking attribute names to the value the 
 | Postal code   | postalCode   |
 | Interests     | interests    |
 
+The form should post to "/createAccount/".
+
 #### From Server
 The server should respond with a JSON map (which you will need to parse using javascript). The map will contain names of fields as a key and the error message that should be displayed as the related value. Ex:
 ```JSON
