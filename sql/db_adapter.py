@@ -9,7 +9,12 @@ Description: The functions in this file provide an interface between
 
 Authors: Steven Landau, Tory Leo, Talha Azhar
 """
+
 import psycopg2 as psql
+
+
+# conn = psycopg2.connect("dbname='p32004b' user='p32004b' host='reddwarf.cs.rit.edu' password='Ahx5peeyaeCh1chiingi'")
+# curr = conn.cursor()
 
 # TODO: Make all possible queries in this file
 
