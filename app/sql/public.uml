@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>a9093cd8-7d1f-4c9c-8063-26fb275bca49.SCHEMA:p32004b.public</OriginalElement>
+  <nodes>
+    <node x="0.0" y="256.0">a9093cd8-7d1f-4c9c-8063-26fb275bca49.TABLE:p32004b.public.address</node>
+    <node x="293.0" y="529.0">a9093cd8-7d1f-4c9c-8063-26fb275bca49.TABLE:p32004b.public.federal_law</node>
+    <node x="0.5" y="0.0">a9093cd8-7d1f-4c9c-8063-26fb275bca49.TABLE:p32004b.public.user</node>
+    <node x="263.5" y="234.0">a9093cd8-7d1f-4c9c-8063-26fb275bca49.TABLE:p32004b.public.forum_comment</node>
+    <node x="243.0" y="0.0">a9093cd8-7d1f-4c9c-8063-26fb275bca49.TABLE:p32004b.public.thread</node>
+    <node x="0.0" y="529.0">a9093cd8-7d1f-4c9c-8063-26fb275bca49.TABLE:p32004b.public.discussion</node>
+    <node x="557.1911764705883" y="367.8323529411765">a9093cd8-7d1f-4c9c-8063-26fb275bca49.TABLE:p32004b.public.role_permission</node>
+    <node x="607.0" y="506.5">a9093cd8-7d1f-4c9c-8063-26fb275bca49.TABLE:p32004b.public.role</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="a9093cd8-7d1f-4c9c-8063-26fb275bca49.TABLE:p32004b.public.address" target="a9093cd8-7d1f-4c9c-8063-26fb275bca49.TABLE:p32004b.public.user">
+      <point x="0.0" y="-114.0" />
+      <point x="0.0" y="103.0" />
+    </edge>
+    <edge source="a9093cd8-7d1f-4c9c-8063-26fb275bca49.TABLE:p32004b.public.forum_comment" target="a9093cd8-7d1f-4c9c-8063-26fb275bca49.TABLE:p32004b.public.thread">
+      <point x="0.0" y="-81.0" />
+      <point x="0.0" y="92.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.4934687953555878" x="384.71911764705885" y="334.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+  </Categories>
+</Diagram>
+
