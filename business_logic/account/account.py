@@ -4,6 +4,7 @@ Description: TODO
 Authors: Steven Landau, Tory Leo, Talha Azhar
 """
 
+
 import business_logic.sql.db_adapter as sql
 
 def validate(username: str, password: str) -> dict:

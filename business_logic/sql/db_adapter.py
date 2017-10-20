@@ -10,14 +10,31 @@ Description: The functions in this file provide an interface between
 Authors: Steven Landau, Tory Leo, Talha Azhar
 """
 
+# password storage
+import hashlib
+
 import psycopg2 as psql
 import uuid
 
-CONNECTION_INFO = "dbname='p32004b' user='p32004b' host='reddwarf.cs.rit.edu' password='Ahx5peeyaeCh1chiingi'"
 
 
 # TODO: Make all possible queries in this file
 
+#
+# Standard DB
+#
+
+CONNECTION_INFO = "dbname='p32004b' user='p32004b' host='reddwarf.cs.rit.edu' password='Ahx5peeyaeCh1chiingi'"
+
+def __open_connections() -> tuple:
+    """
+    TODO
+
+    Return:     conn and curr
+    """
+    conn = psql.connect(CONNECTION_INFO)
+    curr = conn.cursor()
+    return conn, curr
 #
 # SELECTS
 #
@@ -34,6 +51,14 @@ def get_all_users():
 # MISC
 #
 
+
+def __hash_password(password: str) -> str:
+    """
+    TODO
+    """
+    m = hashlib.sha256(password.encode('utf-8'))
+    return m.hexdigest()
+
 def verify_credentials(username: str, password: str) -> bool:
     """
     Ensure that the givne account information is valid
@@ -48,11 +73,9 @@ def verify_credentials(username: str, password: str) -> bool:
             If the credentials turn out to be incorrect the map will also have a "error" attribute that
             contains a description of why the credentials may be incorrect.
     """
-    conn = psql.connect(CONNECTION_INFO)
-    curr = conn.cursor()
+    conn, curr = __open_connections()
 
-    # curr.execute('INSERT INTO "user" values (%s, %s, %s, %s, %s, %s)', (0, "s", "stevne", "landau", "j", str(uuid.uuid1())))
-    curr.execute('SELECT 1 FROM "user" WHERE username=%s AND password=%s', (username, password))
+    curr.execute('SELECT 1 FROM "user" WHERE username=%s AND password=%s', (username, __hash_password(password)))
     response = curr.fetchone()
 
     curr.close()
@@ -63,5 +86,4 @@ def verify_credentials(username: str, password: str) -> bool:
                 "success": False}
     else:
         return {"success": True}
-
 
