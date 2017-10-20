@@ -11,8 +11,8 @@ def hello_word():
     account.validate()
     return render_template('home.html', user="steven")
 
-@app.route('/account/', methods = ['GET', 'POST'])
-def account():
+@app.route('/login/', methods = ['GET', 'POST'])
+def login():
     """
     TODO
     """
