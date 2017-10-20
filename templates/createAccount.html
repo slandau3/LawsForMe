@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>{{ author }}'s app</title>
-  </head>
+{% extends 'layout.html' %}
 
-  <body>
+{% block title %} {{author}}'s page {% endblock %}
+
+{% block head %} 
+
+{{ super()  }} 
+
+{% endblock %}
+ 
+ {% block content %}
+  <form method="post" action="/createAccount">
     <p>Username <input type = "text" name = "username" /></p>
     <p>Password <input type = "text" name = "password" /></p>
     <p>Email <input type = "text" name = "email" /></p>
@@ -69,5 +74,6 @@
 	<p>Postal code <input type ="text" name = "postalCode" /></p>
 	<p>Interests <input type ="text" name = "interests" /></p>
     <p><input type = "submit" value = "submit" /></p>
-  </body>
-</html>
+	</form>
+	
+ {% endblock %}
