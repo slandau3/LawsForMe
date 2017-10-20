@@ -18,8 +18,8 @@ def account():
     """
     if request.method == 'POST':
         # Attempt to obtain the username and password from the form
-        username = request.form['username']
-        password = request.form['password']
+        username = request.form.get('username', False)
+        password = request.form.get('password', False)
 
         # actually validate the credentials
         login_attempt = account.validate(username, password)
@@ -38,7 +38,10 @@ def account():
 
 @app.route('/createAccount/', methods = ['GET', 'POST'])
 def create_account():
-		return render_template('createAccount.html', author="Tory", name="steven")
+    if request.method == 'GET':
+        return render_template('createAccount.html', author="Tory", name="steven")
+    elif request.method == 'POST':
+        pass
 		
 if __name__ == '__main__':
     app.run(debug=True)
