@@ -1,0 +1,87 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+__close_connections	business_logic/sql/db_adapter.py	/^def __close_connections(conn: object, curr: object) -> None:$/;"	f	file:
+__hash_password	business_logic/sql/db_adapter.py	/^def __hash_password(password: str) -> str:$/;"	f	file:
+__open_connections	business_logic/sql/db_adapter.py	/^def __open_connections() -> tuple:$/;"	f	file:
+a	crawler/crawler.py	/^            a = l.find('a')$/;"	v
+address	business_logic/sql/db_craetion.sql	/^CREATE TABLE address ($/;"	t
+address.belongs_to	business_logic/sql/db_craetion.sql	/^  postal_code VARCHAR(5),$/;"	F
+address.city	business_logic/sql/db_craetion.sql	/^  street_2 VARCHAR(80),$/;"	F
+address.created_at	business_logic/sql/db_craetion.sql	/^  belongs_to INT REFERENCES "user"(id),$/;"	F
+address.id	business_logic/sql/db_craetion.sql	/^CREATE TABLE address ($/;"	F
+address.postal_code	business_logic/sql/db_craetion.sql	/^  state TEXT,$/;"	F
+address.state	business_logic/sql/db_craetion.sql	/^  city TEXT,$/;"	F
+address.street_1	business_logic/sql/db_craetion.sql	/^  id SERIAL PRIMARY KEY,$/;"	F
+address.street_2	business_logic/sql/db_craetion.sql	/^  street_1 VARCHAR(80),$/;"	F
+address.updated_at	business_logic/sql/db_craetion.sql	/^  created_at TIMESTAMP NOT NULL DEFAULT now(),$/;"	F
+app	app.py	/^app = Flask(__name__)$/;"	v
+base_url	crawler/crawler.py	/^base_url = "https:\/\/en.wikipedia.org"$/;"	v
+conn	crawler/crawler.py	/^conn = psycopg2.connect("dbname='p32004b' user='p32004b' host='reddwarf.cs.rit.edu' password='Ahx5peeyaeCh1chiingi'")$/;"	v
+create	business_logic/account/account.py	/^        street2: str, postal_code: str, interests: str) -> dict:$/;"	f
+create_account	app.py	/^def create_account():$/;"	f
+curr	crawler/crawler.py	/^curr = conn.cursor()$/;"	v
+discussion	business_logic/sql/db_craetion.sql	/^CREATE TABLE discussion ($/;"	t
+discussion.created_at	business_logic/sql/db_craetion.sql	/^  thread_permission_req INT NOT NULL DEFAULT 0, -- permission level needed to create a thread$/;"	F
+discussion.id	business_logic/sql/db_craetion.sql	/^CREATE TABLE discussion ($/;"	F
+discussion.thread_permission_req	business_logic/sql/db_craetion.sql	/^  title VARCHAR(100) NOT NULL,$/;"	F
+discussion.title	business_logic/sql/db_craetion.sql	/^  id SERIAL PRIMARY KEY,$/;"	F
+discussion.updated_at	business_logic/sql/db_craetion.sql	/^  created_at TIMESTAMP NOT NULL DEFAULT now(),$/;"	F
+federal_law	business_logic/sql/db_craetion.sql	/^CREATE TABLE federal_law ($/;"	t
+federal_law.content	business_logic/sql/db_craetion.sql	/^  title VARCHAR(100) NOT NULL,$/;"	F
+federal_law.created_at	business_logic/sql/db_craetion.sql	/^  content TEXT NOT NULL,$/;"	F
+federal_law.id	business_logic/sql/db_craetion.sql	/^CREATE TABLE federal_law ($/;"	F
+federal_law.title	business_logic/sql/db_craetion.sql	/^  id SERIAL PRIMARY KEY,$/;"	F
+federal_law.updated_at	business_logic/sql/db_craetion.sql	/^  created_at TIMESTAMP NOT NULL DEFAULT now(),$/;"	F
+forum_comment	business_logic/sql/db_craetion.sql	/^CREATE TABLE forum_comment ($/;"	t
+forum_comment.author	business_logic/sql/db_craetion.sql	/^  id SERIAL PRIMARY KEY,$/;"	F
+forum_comment.content	business_logic/sql/db_craetion.sql	/^  author INT REFERENCES "user"(id),$/;"	F
+forum_comment.created_at	business_logic/sql/db_craetion.sql	/^  thread_id INT NOT NULL REFERENCES thread(id),$/;"	F
+forum_comment.id	business_logic/sql/db_craetion.sql	/^CREATE TABLE forum_comment ($/;"	F
+forum_comment.thread_id	business_logic/sql/db_craetion.sql	/^  content TEXT NOT NULL,$/;"	F
+forum_comment.updated_at	business_logic/sql/db_craetion.sql	/^  created_at TIMESTAMP NOT NULL DEFAULT now(),$/;"	F
+get_all_users	business_logic/sql/db_adapter.py	/^def get_all_users():$/;"	f
+h	crawler/crawler.py	/^            h = a.get('href', False)$/;"	v
+hello_word	app.py	/^def hello_word():$/;"	f
+i	crawler/crawler.py	/^i= 1400$/;"	v
+include_package_data	setup.py	/^    include_package_data=True,$/;"	v
+install_requires	setup.py	/^    install_requires=[$/;"	v
+is_username_taken	business_logic/sql/db_adapter.py	/^def is_username_taken(username: str) -> bool:$/;"	f
+login	app.py	/^def login():$/;"	f
+name	setup.py	/^    name='lawsForMe',$/;"	v
+packages	setup.py	/^    packages=['business_logic'],$/;"	v
+r	crawler/crawler.py	/^                r = requests.get(base_url + h)$/;"	v
+r	crawler/crawler.py	/^r = requests.get(url)$/;"	v
+register_account	business_logic/sql/db_adapter.py	/^        city: str, street: str, street2: str, postal_code: str, interests: str) -> dict:$/;"	f
+role	business_logic/sql/db_craetion.sql	/^CREATE TABLE role ($/;"	t
+role.id	business_logic/sql/db_craetion.sql	/^CREATE TABLE role ($/;"	F
+role_permission	business_logic/sql/db_craetion.sql	/^CREATE TABLE role_permission ($/;"	t
+role_permission.id	business_logic/sql/db_craetion.sql	/^CREATE TABLE role_permission ($/;"	F
+soup	crawler/crawler.py	/^                soup = BeautifulSoup(r.text, 'html.parser')$/;"	v
+soup	crawler/crawler.py	/^soup = BeautifulSoup(r.text, 'html.parser')$/;"	v
+t	crawler/crawler.py	/^            t = a.get('title', False)$/;"	v
+text	crawler/crawler.py	/^                text = soup.find(id='bodyContent').text.strip()$/;"	v
+thread	business_logic/sql/db_craetion.sql	/^CREATE TABLE thread ($/;"	t
+thread.comment_permission_req	business_logic/sql/db_craetion.sql	/^  discussion_id INT NOT NULL REFERENCES discussion(id),$/;"	F
+thread.created_at	business_logic/sql/db_craetion.sql	/^  starter_text TEXT,$/;"	F
+thread.discussion_id	business_logic/sql/db_craetion.sql	/^  title VARCHAR(100) NOT NULL,$/;"	F
+thread.id	business_logic/sql/db_craetion.sql	/^CREATE TABLE thread ($/;"	F
+thread.starter_text	business_logic/sql/db_craetion.sql	/^  view_permission_req INT NOT NULL DEFAULT 0,$/;"	F
+thread.title	business_logic/sql/db_craetion.sql	/^  id SERIAL PRIMARY KEY,$/;"	F
+thread.updated_at	business_logic/sql/db_craetion.sql	/^  created_at TIMESTAMP NOT NULL DEFAULT now(),$/;"	F
+thread.view_permission_req	business_logic/sql/db_craetion.sql	/^  comment_permission_req INT NOT NULL DEFAULT 0,$/;"	F
+url	crawler/crawler.py	/^url = "https:\/\/en.wikipedia.org\/wiki\/List_of_United_States_federal_legislation,_1789%E2%80%931901"$/;"	v
+user	business_logic/sql/db_craetion.sql	/^CREATE TABLE "user" ($/;"	t
+user.created_at	business_logic/sql/db_craetion.sql	/^  uuid uuid NOT NULL,$/;"	F
+user.first_name	business_logic/sql/db_craetion.sql	/^  username VARCHAR(20) NOT NULL,$/;"	F
+user.id	business_logic/sql/db_craetion.sql	/^CREATE TABLE "user" ($/;"	F
+user.last_name	business_logic/sql/db_craetion.sql	/^  first_name VARCHAR(20),$/;"	F
+user.password	business_logic/sql/db_craetion.sql	/^  last_name VARCHAR(20),$/;"	F
+user.updated_at	business_logic/sql/db_craetion.sql	/^  created_at TIMESTAMP NOT NULL DEFAULT now(),$/;"	F
+user.username	business_logic/sql/db_craetion.sql	/^  id SERIAL PRIMARY KEY,$/;"	F
+user.uuid	business_logic/sql/db_craetion.sql	/^  password VARCHAR(50) NOT NULL, -- Can be null if social login is used$/;"	F
+validate	business_logic/account/account.py	/^def validate(username: str, password: str) -> dict:$/;"	f
+verify_credentials	business_logic/sql/db_adapter.py	/^def verify_credentials(username: str, password: str) -> bool:$/;"	f

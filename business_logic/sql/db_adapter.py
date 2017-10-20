@@ -38,7 +38,10 @@ def __open_connections() -> tuple:
 
 def __close_connections(conn: object, curr: object) -> None:
     """
-    TODO
+    Close the connection to the database.
+
+    conn: 	db conn object
+    curr: 	db curr object
     """
     curr.close()
     conn.close()
@@ -51,7 +54,7 @@ def get_all_users():
 
 def verify_credentials(username: str, password: str) -> bool:
     """
-    Ensure that the givne account information is valid
+    Ensure that the given account information is valid
     by comparing the username and password to those stored in the database.
     The password is NOT retrieved from the database, rather it is
     simply used in comparison in the SQL query.
@@ -75,23 +78,69 @@ def verify_credentials(username: str, password: str) -> bool:
     curr.close()
     conn.close()
 
-    if response == None:
+    if response is None:
         return {"error": "Username or password is incorrect.",
                 "success": False}
     else:
         return {"success": True}
 
 
-def register_account(username: str, password: str, email: str, state: str, \
-        city: str, street: str, street2: str, postal_code: str, interests: str) -> dict:
+def register_account(username: str, password: str, first_name: str, \
+        last_name:  str, email: str, state: str, city: str, \
+        street: str, street2: str, postal_code: str, interests: str) -> dict:
+    """
+    Register a new account to the database.
+    A minimum of a username, password and interets 
+    are required for registration. Everything else is optional
+    (but recommended)
+
+    username:   Username for the users account
+    password:   Password for the users account
+    first_name:     First name of the user
+    last_name:      Last name of the user
+    email:      Email address of the user
+    state:      State the user lives in
+    city:       City the user lives in
+    street:     Street address where the user lives
+    street2:    street line 2
+    postal_code:    Postal code of the users area
+    interests:      The users interests
+
+    return:     Dictionary with various attributes in it. 
+
+                If the function executed successfully the 
+                following dictionary will be returned
+                {'success': True, 'uuid': uuid}
+                
+                If the function did not execute correctly
+                the following dictionary will be returned
+                {'success': False, 'errors': 'explanation'}
+    """
     # open the db connection
     conn, curr = __open_connections()
 
-    # curr.execute('INSERT INTO "user"(username, first_name, last_name, password, uuid)
-            # VALUES (%s, %s, %s, %s, %s)', (username, ))
+    # define a uuid for this user
+    uu = uuid.uuid4()
+
+    # insert into "user"
+    curr.execute('INSERT INTO "user"(username, first_name, last_name, password, uuid) \
+            VALUES (%s, %s, %s, %s, %s)', (username, first_name, last_name, \
+                    __hash_password(password), str(uu)))
+
+
+    # insert into address
+    curr.execute('INSERT INTO address(street_1, street_2, city, state, postal_code, belongs_to) \
+            VALUES (%s, %s, %s, %s, %s, (SELECT id FROM "user" WHERE uuid = %s))', \
+                    (street, street2, city, state, postal_code, str(uu)))
+
+    # Commit the changes to the db
+    conn.commit()
 
     # close the db connection
     __close_connections(conn, curr)
+
+    # return the uuid assigned to the user
+    return uu
     
 
 def is_username_taken(username: str) -> bool:
@@ -100,7 +149,7 @@ def is_username_taken(username: str) -> bool:
 
     curr.execute('SELECT 1 FROM "user" WHERE username=%s', (username,))
 
-    # fetch the results
+    # fetch the result
     response = curr.fetchone()
 
     # close the db connection
@@ -118,7 +167,11 @@ def is_username_taken(username: str) -> bool:
 
 def __hash_password(password: str) -> str:
     """
-    TODO
+    Hash the given password with sha256 hashing.
+
+    password: 	The password that will be encrypted
+
+    Return: 	Encrypted string in unicode
     """
     m = hashlib.sha256(password.encode('utf-8'))
     return m.hexdigest()

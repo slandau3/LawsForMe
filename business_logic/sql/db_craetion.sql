@@ -11,8 +11,8 @@ CREATE TABLE "user" (
   username VARCHAR(20) NOT NULL,
   first_name VARCHAR(20),
   last_name VARCHAR(20),
-  password VARCHAR(50) NOT NULL, -- Can be null if social login is used
-  uuid uuid NOT NULL,
+  password VARCHAR(100) NOT NULL, -- Can be null if social login is used
+  uuid uuid UNIQUE NOT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT now(),
   updated_at TIMESTAMP NOT NULL DEFAULT now()
 );

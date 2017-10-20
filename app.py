@@ -1,6 +1,9 @@
 import business_logic.account.account as account
 import json
-from flask import Flask, session, render_template, request, Response, redirect
+
+# initialize flask
+from flask import Flask, session, render_template, \
+                request, Response, redirect
 app = Flask(__name__)
 app.secret_key = "secret key"
 
@@ -60,18 +63,13 @@ def create_account():
                 street2, postal_code, interests)
 
         if create_account_resp['success']:
+            session['uuid'] = create_account_resp.get('uuid')
             return redirect("/")
         else:
             return Response(json.dumps(create_account_resp), mimetype='application/json; charset=utf-8')
     else:
         raise NotImplemented()
-
-
-
-
-
-
-        pass
 		
+
 if __name__ == '__main__':
     app.run(debug=True)
