@@ -35,29 +35,19 @@ def __open_connections() -> tuple:
     conn = psql.connect(CONNECTION_INFO)
     curr = conn.cursor()
     return conn, curr
-#
-# SELECTS
-#
-def get_all_users():
-    return None
 
-
-#
-# INSERTS
-#
-
-
-#
-# MISC
-#
-
-
-def __hash_password(password: str) -> str:
+def __close_connections(conn: object, curr: object) -> None:
     """
     TODO
     """
-    m = hashlib.sha256(password.encode('utf-8'))
-    return m.hexdigest()
+    curr.close()
+    conn.close()
+#
+# Account Creation and verification
+#
+
+def get_all_users():
+    return None
 
 def verify_credentials(username: str, password: str) -> bool:
     """
@@ -73,11 +63,15 @@ def verify_credentials(username: str, password: str) -> bool:
             If the credentials turn out to be incorrect the map will also have a "error" attribute that
             contains a description of why the credentials may be incorrect.
     """
+    # open the db connection
     conn, curr = __open_connections()
 
     curr.execute('SELECT 1 FROM "user" WHERE username=%s AND password=%s', (username, __hash_password(password)))
+    
+    # fetch the results
     response = curr.fetchone()
 
+    # close the db connection
     curr.close()
     conn.close()
 
@@ -86,4 +80,47 @@ def verify_credentials(username: str, password: str) -> bool:
                 "success": False}
     else:
         return {"success": True}
+
+
+def register_account(username: str, password: str, email: str, state: str, \
+        city: str, street: str, street2: str, postal_code: str, interests: str) -> dict:
+    # open the db connection
+    conn, curr = __open_connections()
+
+    # curr.execute('INSERT INTO "user"(username, first_name, last_name, password, uuid)
+            # VALUES (%s, %s, %s, %s, %s)', (username, ))
+
+    # close the db connection
+    __close_connections(conn, curr)
+    
+
+def is_username_taken(username: str) -> bool:
+    # open the db connection
+    conn, curr = __open_connections()
+
+    curr.execute('SELECT 1 FROM "user" WHERE username=%s', (username,))
+
+    # fetch the results
+    response = curr.fetchone()
+
+    # close the db connection
+    __close_connections(conn, curr)
+
+    # if response is None then the username has not been taken
+    # if response is not None then that means someone with that username
+    # already exists
+    return response != None
+
+#
+# MISC
+#
+
+
+def __hash_password(password: str) -> str:
+    """
+    TODO
+    """
+    m = hashlib.sha256(password.encode('utf-8'))
+    return m.hexdigest()
+
 

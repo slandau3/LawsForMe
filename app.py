@@ -41,6 +41,36 @@ def create_account():
     if request.method == 'GET':
         return render_template('createAccount.html', author="Tory", name="steven")
     elif request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        email = request.form.get('email')
+        # Don't know if this is correct since state is a drop down
+        state = request.form.get('state')
+        city = request.form.get('city')
+        street = request.form.get('street')
+        street2 = request.form.get('street2')
+        postal_code = request.form.get('postalCode')
+        interests = request.form.get('interests')
+        firstname = request.form.get('firstname')
+        lastname = request.form.get('lastname')
+
+
+        create_account_resp = account.create(username, password, \
+                firstname, lastname, email, state, city, street, \
+                street2, postal_code, interests)
+
+        if create_account_resp['success']:
+            return redirect("/")
+        else:
+            return Response(json.dumps(create_account_resp), mimetype='application/json; charset=utf-8')
+    else:
+        raise NotImplemented()
+
+
+
+
+
+
         pass
 		
 if __name__ == '__main__':

@@ -9,8 +9,8 @@ CREATE TABLE role_permission (
 CREATE TABLE "user" (
   id SERIAL PRIMARY KEY,
   username VARCHAR(20) NOT NULL,
-  first_name VARCHAR(20) NOT NULL,
-  last_name VARCHAR(20) NOT NULL,
+  first_name VARCHAR(20),
+  last_name VARCHAR(20),
   password VARCHAR(50) NOT NULL, -- Can be null if social login is used
   uuid uuid NOT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT now(),
@@ -21,9 +21,9 @@ CREATE TABLE address (
   id SERIAL PRIMARY KEY,
   street_1 VARCHAR(80),
   street_2 VARCHAR(80),
-  city TEXT NOT NULL,
-  state TEXT NOT NULL,
-  postal_code VARCHAR(5) NOT NULL,
+  city TEXT,
+  state TEXT,
+  postal_code VARCHAR(5),
   belongs_to INT REFERENCES "user"(id),
   created_at TIMESTAMP NOT NULL DEFAULT now(),
   updated_at TIMESTAMP NOT NULL DEFAULT now()
