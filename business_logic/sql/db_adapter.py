@@ -24,7 +24,7 @@ import uuid
 # Standard DB
 #
 
-cursor.execute("SET character_set_connection=utf8mb4;") #same as above
+CONNECTION_INFO = "dbname='p32004b' user='p32004b' host='reddwarf.cs.rit.edu' password='Ahx5peeyaeCh1chiingi'"
 
 def __open_connections() -> tuple:
     """
