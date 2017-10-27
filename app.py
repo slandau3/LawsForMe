@@ -34,7 +34,7 @@ def login():
             # about what went wrong in json form
             return Response(json.dumps(login_attempt), mimetype='application/json; charset=utf-8')
     elif request.method == 'GET':
-        pass
+        return render_template('login.html')
     else:
         raise NotImplemented()
 

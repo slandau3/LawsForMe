@@ -8,7 +8,7 @@ CREATE TABLE role_permission (
 
 CREATE TABLE "user" (
   id SERIAL PRIMARY KEY,
-  username VARCHAR(20) NOT NULL,
+  username VARCHAR(20) UNIQUE NOT NULL,
   first_name VARCHAR(20),
   last_name VARCHAR(20),
   password VARCHAR(100) NOT NULL, -- Can be null if social login is used
