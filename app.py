@@ -10,9 +10,8 @@ app.secret_key = "secret key"
 
 
 @app.route('/')
-def hello_word():
-    account.validate()
-    return render_template('home.html', user="steven")
+def home():
+    return render_template('index.html')
 
 @app.route('/login/', methods = ['GET', 'POST'])
 def login():
