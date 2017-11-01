@@ -1,10 +1,15 @@
-CREATE TABLE role (
-  id SERIAL PRIMARY KEY
+CREATE TABLE role_permission (
+  id SERIAL PRIMARY KEY,
+  comment_permission int NOT NULL,
+  view_permission int NOT NULL
 );
 
-CREATE TABLE role_permission (
-  id SERIAL PRIMARY KEY
+CREATE TABLE role (
+  id SERIAL PRIMARY KEY,
+  level int REFERENCES role_permission(id)
 );
+
+
 
 CREATE TABLE "user" (
   id SERIAL PRIMARY KEY,
