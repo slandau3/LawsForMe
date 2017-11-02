@@ -28,7 +28,6 @@ CREATE TABLE address (
   street_2 VARCHAR(80),
   city TEXT,
   state TEXT,
-  postal_code VARCHAR(5),
   belongs_to INT REFERENCES "user"(id),
   created_at TIMESTAMP NOT NULL DEFAULT now(),
   updated_at TIMESTAMP NOT NULL DEFAULT now()
