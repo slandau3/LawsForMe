@@ -51,7 +51,6 @@ def create_account():
         city = request.form.get('city')
         street = request.form.get('street')
         street2 = request.form.get('street2')
-        postal_code = request.form.get('postalCode')
         interests = request.form.get('interests')
         firstname = request.form.get('firstname')
         lastname = request.form.get('lastname')
@@ -59,7 +58,7 @@ def create_account():
 
         create_account_resp = account.create(username, password, \
                 firstname, lastname, email, state, city, street, \
-                street2, postal_code, interests)
+                street2, interests)
 
         if create_account_resp['success']:
             session['uuid'] = create_account_resp.get('uuid')

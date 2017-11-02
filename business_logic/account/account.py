@@ -19,7 +19,7 @@ def validate(username: str, password: str) -> dict:
 
 def create(username: str, password: str, firstname: str, lastname: str, \
         email: str, state: str, city: str, street: str, \
-        street2: str, postal_code: str, interests: str) -> dict:
+        street2: str, interests: str) -> dict:
     """
     TODO
     """
@@ -36,11 +36,7 @@ def create(username: str, password: str, firstname: str, lastname: str, \
         return  {"success": False,
                 "errors": "You are required to have at least one interest"}
 
-    elif postal_code is not None and len(postal_code) != 5:
-        return {"success": False,
-                "errors": "Invalid postal_code"}
-
     return sql.register_account(username, password, firstname, lastname, \
-            email, state, city, street, street2, postal_code, interests)
+            email, state, city, street, street2, interests)
 
         

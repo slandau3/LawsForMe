@@ -12,12 +12,11 @@ CREATE TABLE role (
 
 
 CREATE TABLE "user" (
-  id SERIAL PRIMARY KEY,
+  id uuid PRIMARY KEY,
   username VARCHAR(20) UNIQUE NOT NULL,
   first_name VARCHAR(20),
   last_name VARCHAR(20),
   password VARCHAR(100) NOT NULL, -- Can be null if social login is used
-  uuid uuid UNIQUE NOT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT now(),
   updated_at TIMESTAMP NOT NULL DEFAULT now()
 );
@@ -28,7 +27,7 @@ CREATE TABLE address (
   street_2 VARCHAR(80),
   city TEXT,
   state TEXT,
-  belongs_to INT REFERENCES "user"(id),
+  belongs_to uuid REFERENCES "user"(id),
   created_at TIMESTAMP NOT NULL DEFAULT now(),
   updated_at TIMESTAMP NOT NULL DEFAULT now()
 );
@@ -64,7 +63,7 @@ CREATE TABLE thread (
 
 CREATE TABLE forum_comment (
   id SERIAL PRIMARY KEY,
-  author INT REFERENCES "user"(id),
+  author uuid REFERENCES "user"(id),
   content TEXT NOT NULL,
   thread_id INT NOT NULL REFERENCES thread(id),
   created_at TIMESTAMP NOT NULL DEFAULT now(),
