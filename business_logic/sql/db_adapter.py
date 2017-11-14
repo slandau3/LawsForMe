@@ -159,6 +159,18 @@ def is_username_taken(username: str) -> bool:
     # already exists
     return response != None
 
+def get_discussions():
+    conn, curr = __open_connections()
+
+    curr.execute('SELECT * FROM discussion')
+
+    # don't remember if this is what it is
+    response = curr.fetchall()
+
+    __close_connections(conn, curr)
+
+    return response
+
 #
 # MISC
 #
@@ -219,3 +231,4 @@ def __test_create_account():
 
 # uncomment the line below to run the test that registers a user in the database, checks to see if they were registered successfully, then deletes them from the database
 # __test_create_account()
+

@@ -1,4 +1,5 @@
 import business_logic.account.account as account
+import business_logic.db.db_adapter :as db
 import json
 
 # initialize flask
@@ -68,6 +69,12 @@ def create_account():
     else:
         raise NotImplemented()
 		
+@app.route('/forum/discussions/', methods = ['GET'])
+def load_forum_discussions():
+    if request.method == 'GET':
+        discussions = db.getDiscussions()
+        return None
+        #return render_template('discussions.html', name=)
 
 if __name__ == '__main__':
     app.run(debug=True)
