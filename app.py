@@ -14,7 +14,7 @@ app.secret_key = "secret key"
 def home():
     return render_template('index.html')
 
-@app.route('/login', methods = ['GET', 'POST'])
+@app.route('/login/', methods = ['GET', 'POST'])
 def login():
     """
     TODO
@@ -39,7 +39,7 @@ def login():
         raise NotImplemented()
 
 
-@app.route('/createAccount', methods = ['GET', 'POST'])
+@app.route('/createAccount/', methods = ['GET', 'POST'])
 def create_account():
     if request.method == 'GET':
         return render_template('createAccount.html', author="Tory", name="steven")
@@ -69,7 +69,7 @@ def create_account():
     else:
         raise NotImplemented()
 		
-@app.route('/forum/discussions', methods = ['GET'])
+@app.route('/forum/discussions/', methods = ['GET'])
 def load_forum_discussions():
     if request.method == 'GET':
         discussions = db.getDiscussions()
