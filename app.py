@@ -1,5 +1,5 @@
 import business_logic.account.account as account
-import business_logic.db.db_adapter :as db
+import business_logic.sql.db_adapter as db
 import json
 
 # initialize flask
