@@ -60,11 +60,12 @@ def create_account():
         create_account_resp = account.create(username, password, \
                 firstname, lastname, email, state, city, street, \
                 street2, interests)
-
+        print(create_account_resp)
         if create_account_resp['success']:
             session['uuid'] = create_account_resp.get('uuid')
-            return redirect("/")
+            return redirect("/createAccount/")
         else:
+            # TODO: make the page display the fields that caused an error
             return Response(json.dumps(create_account_resp), mimetype='application/json; charset=utf-8')
     else:
         raise NotImplemented()
