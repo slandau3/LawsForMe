@@ -23,7 +23,6 @@ def login():
     """
     TODO
     """
-    print("help")
     if request.method == 'POST':
         # Attempt to obtain the username and password from the form
         username = request.form.get('username', False)
