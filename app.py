@@ -32,6 +32,8 @@ def login():
         # actually validate the credentials
         login_attempt = account.validate(username, password)
 
+        print(login_attempt)
+
         if login_attempt['success']:
             return redirect("/") # TODO: Figure out where we actually want to redirect them
         else:
@@ -39,6 +41,7 @@ def login():
             # about what went wrong in json form
             return Response(json.dumps(login_attempt), mimetype='application/json; charset=utf-8')
     elif request.method == 'GET':
+        print("Getting")
         return render_template('login.html')
     else:
         raise NotImplementedError()
@@ -49,7 +52,7 @@ def create_account():
     TODO
     """
     if request.method == 'GET':
-        return render_template('createAccount.html', author="Tory", name="steven")
+        return render_template('createAccount.html')
     elif request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
@@ -67,11 +70,13 @@ def create_account():
         create_account_resp = account.create(username, password, \
                 firstname, lastname, email, state, city, street, \
                 street2, interests)
-
+        print(create_account_resp)
         if create_account_resp['success']:
             session['uuid'] = create_account_resp.get('uuid')
-            return redirect("/")
+            return redirect("/login/")
         else:
+            print("failed")
+            # TODO: make the page display the fields that caused an error
             return Response(json.dumps(create_account_resp), mimetype='application/json; charset=utf-8')
     else:
         raise NotImplementedError()

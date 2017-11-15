@@ -11,9 +11,9 @@ def validate(username: str, password: str) -> dict:
     TODO
     """
     if username.strip() == "":
-        return {"error": "Username cannot be left blank."}
+        return {"success": False, "error": "Username cannot be left blank."}
     elif password.strip() == "":
-        return {"error": "Password cannot be left blank."}
+        return {"success": False, "error": "Password cannot be left blank."}
     else:
         return sql.verify_credentials(username, password)
 
@@ -23,16 +23,16 @@ def create(username: str, password: str, firstname: str, lastname: str, \
     """
     TODO
     """
-    if username is None:
+    if not username:
         return {"success": False,
                 "errors": "Username is required."}
     elif sql.is_username_taken(username):
         return {"success": False,
                 "errors": "That username has already been taken."}
-    elif password is None:
+    elif not password:
         return {"success": False,
                 "errors": "Password is required."}
-    elif interests is None:
+    elif not interests:
         return  {"success": False,
                 "errors": "You are required to have at least one interest"}
 

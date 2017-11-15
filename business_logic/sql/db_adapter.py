@@ -139,7 +139,8 @@ def register_account(username: str, password: str, first_name: str, \
     __close_connections(conn, curr)
 
     # return the uuid assigned to the user
-    return uu
+    # TODO: figure out whether this worked or not
+    return {"success": True, "uuid" : uu}
     
 
 def is_username_taken(username: str) -> bool:
