@@ -16,6 +16,14 @@ app.secret_key = "secret key"
 
 @app.route('/')
 def home():
+    uuid = session.get('uuid', False)
+    if not uuid:
+        pass
+        # person is not logged in
+        # TODO: create default home template
+
+    # if they are logged in display to them their custom login page
+    # TODO: make a custom login page
     return render_template('index.html')
 
 @app.route('/login/', methods=['GET', 'POST'])

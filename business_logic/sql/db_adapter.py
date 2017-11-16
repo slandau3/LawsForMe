@@ -87,7 +87,7 @@ def verify_credentials(username: str, password: str) -> bool:
 
 def register_account(username: str, password: str, first_name: str, \
         last_name:  str, email: str, state: str, city: str, \
-        street: str, street2: str, interests: str) -> dict:
+        street: str, street2: str, interests: list) -> dict:
     """
     Register a new account to the database.
     A minimum of a username, password and interets 
@@ -132,6 +132,15 @@ def register_account(username: str, password: str, first_name: str, \
             VALUES (%s, %s, %s, %s, %s)', \
                     (street, street2, city, state, str(uu)))
 
+    # insert into interests
+    for interest in interests:
+        curr.execute("INSERT INTO interests(interest)"
+                " SELECT %s"
+                " WHERE NOT EXISTS (SELECT interest FROM interests WHERE interest = %s)",
+                (interest, interest))
+        curr.execute('INSERT INTO users_and_interests("user", interest) VALUES (%s, %s)', (str(uu), interest))
+
+
     # Commit the changes to the db
     conn.commit()
 
@@ -159,6 +168,38 @@ def is_username_taken(username: str) -> bool:
     # if response is not None then that means someone with that username
     # already exists
     return response != None
+
+
+def update_interests(interests: list) -> None:
+    """
+    Link interests to the laws that affect it. It's possible
+    some interests have no laws that affect them.
+    """
+    # open the db connection
+    conn, curr = __open_connections()
+
+    for interest in interests:
+        # find federal laws that contain this interest
+        curr.execute("SELECT id FROM federal_law WHERE content LIKE '%%" + interest + "%%'")  # Really bad I know.
+
+        # load the interests_and_laws table if this particular combination
+        # of interest and law does not exist
+        for law in curr.fetchall():
+            curr.execute("INSERT INTO interests_and_laws(interest, law) "
+                         "SELECT %s, %s"
+                         " WHERE NOT EXISTS "
+                         "(SELECT id FROM interests_and_laws "
+                         "WHERE interest = %s and law = %s)", 
+                         (interest, law[0], interest, law[0]))
+
+    # commit all this to the db
+    # is it ok to do this here and not sooner?
+    conn.commit()
+
+    # close the connections
+    __close_connections(conn, curr)
+
+
 
 def get_discussions():
     conn, curr = __open_connections()

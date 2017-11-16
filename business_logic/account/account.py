@@ -4,7 +4,11 @@ Description: TODO
 Authors: Steven Landau, Tory Leo, Talha Azhar
 """
 
+from concurrent.futures import ThreadPoolExecutor
+
 import business_logic.sql.db_adapter as sql
+
+EXECUTOR = ThreadPoolExecutor(max_workers=1)
 
 def validate(username: str, password: str) -> dict:
     """
@@ -36,7 +40,17 @@ def create(username: str, password: str, firstname: str, lastname: str, \
         return  {"success": False,
                 "errors": "You are required to have at least one interest"}
 
-    return sql.register_account(username, password, firstname, lastname, \
+    interests = interests.split(',')  # Interests should be comma seperated
+    registration_response = sql.register_account(username, password, firstname, lastname, \
             email, state, city, street, street2, interests)
 
-        
+    if registration_response['success']:
+        # If we were registered successfully 
+        # update the interest associations on another thread
+        EXECUTOR.submit(sql.update_interests, interests)
+    return registration_response
+
+
+
+
+
