@@ -52,7 +52,7 @@ def __close_connections(conn: object, curr: object) -> None:
 def get_all_users():
     return None
 
-def verify_credentials(username: str, password: str) -> bool:
+def verify_credentials(username: str, password: str) -> dict:
     """
     Ensure that the given account information is valid
     by comparing the username and password to those stored in the database.
@@ -69,7 +69,7 @@ def verify_credentials(username: str, password: str) -> bool:
     # open the db connection
     conn, curr = __open_connections()
 
-    curr.execute('SELECT 1 FROM "user" WHERE username=%s AND password=%s', (username, __hash_password(password)))
+    curr.execute('SELECT id FROM "user" WHERE username=%s AND password=%s', (username, __hash_password(password)))
     
     # fetch the results
     response = curr.fetchone()
@@ -78,11 +78,13 @@ def verify_credentials(username: str, password: str) -> bool:
     curr.close()
     conn.close()
 
+
     if response is None:
         return {"error": "Username or password is incorrect.",
                 "success": False}
     else:
-        return {"success": True}
+        return {"success": True,
+                "uuid": uuid.UUID(response[0])}
 
 
 def register_account(username: str, password: str, first_name: str, \
@@ -198,6 +200,40 @@ def update_interests(interests: list) -> None:
 
     # close the connections
     __close_connections(conn, curr)
+
+
+def get_laws_of_interests(user: uuid) -> dict:
+    # open the db connection
+    conn, curr = __open_connections()
+
+    # Don't try to understand this query. Just know that it gets interests
+    # and their corresponding laws from the db
+    curr.execute("select interest, title"
+                " from (select laws.interest, laws.law"
+                 ' from (select interest from users_and_interests where "user" = %s) as interests'
+                   " JOIN interests_and_laws as laws"
+                     " on interests.interest = laws.interest)"
+                     " as t join federal_law as f on t.law = f.id",
+                     (str(user),))
+
+
+    response = curr.fetchall()
+
+
+    conn.commit()
+
+    __close_connections(conn, curr)
+
+    interests_and_laws = {}
+    for interest, law in response:
+        interest = interest.strip()
+        if interest in interests_and_laws:
+            interests_and_laws[interest].add(law)
+        else:
+            interests_and_laws[interest] = {law}
+
+    return interests_and_laws
+
 
 
 

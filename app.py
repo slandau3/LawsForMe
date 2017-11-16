@@ -13,18 +13,34 @@ app = Flask(__name__)
 app.secret_key = "secret key"
 
 
+def __session_has_uuid():
+    uuid = session.get('uuid', False)
+    # keep in mind uuid may not be a boolean, which is why I'm comparing it to one
+    # if you find a way to cast uuid to a boolean while its of type uuid then feel
+    # free to change it
+    return uuid != False
 
 @app.route('/')
 def home():
-    uuid = session.get('uuid', False)
-    if not uuid:
-        pass
-        # person is not logged in
-        # TODO: create default home template
+    logged_in = __session_has_uuid()
+    if logged_in:
+        # TODO: make this render more stuff such as links to the persons interests
+        laws_of_interests = db.get_laws_of_interests(session['uuid'])
+        return render_template('index.html', logged_in=logged_in, laws_of_interests=laws_of_interests)
+    else:
+        return render_template('index.html', logged_in=logged_in)
 
-    # if they are logged in display to them their custom login page
-    # TODO: make a custom login page
-    return render_template('index.html')
+
+
+@app.route('/logout/', methods=['GET', 'POST'])
+def logout():
+    uuid = session.get('uuid', False)
+    if uuid:
+        # user is logged in so lets get rid fo their uuid
+        del session['uuid']
+
+    return redirect('/')
+
 
 @app.route('/login/', methods=['GET', 'POST'])
 def login():
@@ -42,6 +58,7 @@ def login():
         print(login_attempt)
 
         if login_attempt['success']:
+            session['uuid'] = login_attempt['uuid']
             return redirect("/") # TODO: Figure out where we actually want to redirect them
         else:
             # An error has occured, we need to respond to the request with details 

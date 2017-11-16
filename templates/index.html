@@ -14,7 +14,11 @@
 <!-- ##### Header ##### -->
 <div id="header">
     <a href="index.html" class="headerTitle" ><img src="{{ url_for('static', filename='images/logo.PNG') }}" alt="LawsForMe Homepage" ></a>
-    <div class="login"><a href="#">Sign Up</a> | <a href="login.html">Sign In</a> </div>
+    {% if logged_in %}
+    <div class="login"><a href="/logout/">Sign out</a></div>
+    {% else %}
+    <div class="login"><a href="/createAccount/">Sign Up</a> | <a href="/login/">Sign In</a> </div>
+    {% endif %}
     <div class="subHeader"> <span class="doNotDisplay">Navigation: </span> <a href="#">Home</a> | <a href="#">Forums</a> | <a href="#">Account</a> | <a href="#">Contact Us</a> | <a href="#">About Us</a> </div>
 </div>
 <div id="side-bar">
@@ -61,6 +65,18 @@
     
 <!-- ##### Main Copy ##### -->
 <div id="main-copy">
+    {% if logged_in %}
+        <h2>Here are some laws we thought might interest you</h2>
+        {% for interest in laws_of_interests %}
+            <h3>Since you are interested in {{ interest|e }}</h3>
+            <ul>
+            {% for law in laws_of_interests.get(interest) %}
+                <li>{{ law|e }}</li>
+            {% endfor %}
+            </ul>
+        {% endfor %}
+
+    {% else %}
   <h1 id="introduction" style="border-top: none; padding-top: 0;">Introduction</h1>
     <p>LawsForMe™ is a web application that will inform users (via email) of laws that exist and that are being passed/proposed that might aﬀect their interests. When someone registers an account on the LawsForMe website their address will be used to determine their state and county. The user is assumed to be in the United States. The user will then enter their interests which will result in Federal, State, and County laws being scanned for possible laws that aﬀect their interest (positively or negatively). There will also be a forum section of the website where users will be able to discuss the impacts of various laws on various hobbies.</p>
   
@@ -101,6 +117,7 @@
     relative. This means that a user can increase the default font size of your page (using their
     browser) without compromising it&rsquo;s layout.</p>
 -->
+    {% endif %}
 </div>
 <!-- ##### Footer ##### -->
 <div id="footer">
