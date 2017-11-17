@@ -14,6 +14,12 @@ app.secret_key = "secret key"
 
 
 def __session_has_uuid():
+    """
+    Determine whether or not a session has a uuid attached
+    to it.
+
+    :return: True if it does, False otherwise
+    """
     uuid = session.get('uuid', False)
     # keep in mind uuid may not be a boolean, which is why I'm comparing it to one
     # if you find a way to cast uuid to a boolean while its of type uuid then feel
@@ -22,18 +28,33 @@ def __session_has_uuid():
 
 @app.route('/')
 def home():
+    """
+    Render the home page of the website.
+    If the user has a uuid attached to their session
+    the logged in version of the home page will be loaded
+    that lists out laws that may interest them.
+    Otherwise the not logged in version of the page
+    is loaded which contains information about the website
+    and general "about us" stuff.
+    """
     logged_in = __session_has_uuid()
     if logged_in:
-        # TODO: make this render more stuff such as links to the persons interests
         laws_of_interests = db.get_laws_of_interests(session['uuid'])
-        return render_template('index.html', logged_in=logged_in, laws_of_interests=laws_of_interests)
-    else:
-        return render_template('index.html', logged_in=logged_in)
+        return render_template('index.html',
+                               logged_in=logged_in, laws_of_interests=laws_of_interests)
+
+    return render_template('index.html', logged_in=logged_in)
 
 
 
 @app.route('/logout/', methods=['GET', 'POST'])
 def logout():
+    """
+    Log the user out by deleting the uuid attached to their session
+    and redirect them to the home page.
+    If the person is not logged in they are simply redirected to the
+    home page.
+    """
     uuid = session.get('uuid', False)
     if uuid:
         # user is logged in so lets get rid fo their uuid
@@ -60,10 +81,10 @@ def login():
         if login_attempt['success']:
             session['uuid'] = login_attempt['uuid']
             return redirect("/") # TODO: Figure out where we actually want to redirect them
-        else:
-            # An error has occured, we need to respond to the request with details 
-            # about what went wrong in json form
-            return Response(json.dumps(login_attempt), mimetype='application/json; charset=utf-8')
+
+        # An error has occured, we need to respond to the request with details
+        # about what went wrong in json form
+        return Response(json.dumps(login_attempt), mimetype='application/json; charset=utf-8')
     elif request.method == 'GET':
         print("Getting")
         return render_template('login.html')
