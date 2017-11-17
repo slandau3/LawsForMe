@@ -1,10 +1,10 @@
 """
 File: db_adapter.py
-Description: The functions in this file provide an interface between 
+Description: The functions in this file provide an interface between
              the rest of the program and the databaes. This file should
              contain every function that is needed to interact with the
-             database. The functions in this file do not do any 
-             verification aside from constraint checks when 
+             database. The functions in this file do not do any
+             verification aside from constraint checks when
              performing queries.
 
 Authors: Steven Landau, Tory Leo, Talha Azhar
@@ -12,13 +12,12 @@ Authors: Steven Landau, Tory Leo, Talha Azhar
 
 # password storage
 import hashlib
-
-import psycopg2 as psql
 import uuid
 
+import psycopg2 as psql
 
 
-# TODO: Make all possible queries in this file
+
 
 #
 # Standard DB
@@ -107,12 +106,12 @@ def register_account(username: str, password: str, first_name: str, \
     street2:    street line 2
     interests:      The users interests
 
-    return:     Dictionary with various attributes in it. 
+    return:     Dictionary with various attributes in it.
 
-                If the function executed successfully the 
+                If the function executed successfully the
                 following dictionary will be returned
                 {'success': True, 'uuid': uuid}
-                
+
                 If the function did not execute correctly
                 the following dictionary will be returned
                 {'success': False, 'errors': 'explanation'}
@@ -121,26 +120,27 @@ def register_account(username: str, password: str, first_name: str, \
     conn, curr = __open_connections()
 
     # define a uuid for this user
-    uu = uuid.uuid4()
+    user = uuid.uuid4()
 
     # insert into "user"
     curr.execute('INSERT INTO "user"(id, username, first_name, last_name, password) \
-            VALUES (%s, %s, %s, %s, %s)', (str(uu), username, first_name, last_name, \
+            VALUES (%s, %s, %s, %s, %s)', (str(user), username, first_name, last_name, \
                     __hash_password(password)))
 
 
     # insert into address
     curr.execute('INSERT INTO address(street_1, street_2, city, state, belongs_to) \
             VALUES (%s, %s, %s, %s, %s)', \
-                    (street, street2, city, state, str(uu)))
+                    (street, street2, city, state, str(user)))
 
     # insert into interests
     for interest in interests:
         curr.execute("INSERT INTO interests(interest)"
-                " SELECT %s"
-                " WHERE NOT EXISTS (SELECT interest FROM interests WHERE interest = %s)",
-                (interest, interest))
-        curr.execute('INSERT INTO users_and_interests("user", interest) VALUES (%s, %s)', (str(uu), interest))
+                     " SELECT %s"
+                     " WHERE NOT EXISTS (SELECT interest FROM interests WHERE interest = %s)",
+                     (interest, interest))
+        curr.execute('INSERT INTO users_and_interests("user", interest) VALUES (%s, %s)',
+                     (str(user), interest))
 
 
     # Commit the changes to the db
@@ -151,10 +151,16 @@ def register_account(username: str, password: str, first_name: str, \
 
     # return the uuid assigned to the user
     # TODO: figure out whether this worked or not
-    return {"success": True, "uuid" : uu}
-    
+    return {"success": True, "uuid" : user}
+
 
 def is_username_taken(username: str) -> bool:
+    """
+    Determine if the given username is already registered
+    in the database.
+
+    :return: True if the username is registered, False otherwise
+    """
     # open the db connection
     conn, curr = __open_connections()
 
@@ -182,7 +188,8 @@ def update_interests(interests: list) -> None:
 
     for interest in interests:
         # find federal laws that contain this interest
-        curr.execute("SELECT id FROM federal_law WHERE content LIKE '%%" + interest + "%%'")  # Really bad I know.
+        curr.execute("SELECT id FROM federal_law WHERE content LIKE '%%"
+                     + interest + "%%'")  # Really bad I know.
 
         # load the interests_and_laws table if this particular combination
         # of interest and law does not exist
@@ -191,7 +198,7 @@ def update_interests(interests: list) -> None:
                          "SELECT %s, %s"
                          " WHERE NOT EXISTS "
                          "(SELECT id FROM interests_and_laws "
-                         "WHERE interest = %s and law = %s)", 
+                         "WHERE interest = %s and law = %s)",
                          (interest, law[0], interest, law[0]))
 
     # commit all this to the db
@@ -203,18 +210,21 @@ def update_interests(interests: list) -> None:
 
 
 def get_laws_of_interests(user: uuid) -> dict:
+    """
+    TODO: docstrings
+    """
     # open the db connection
     conn, curr = __open_connections()
 
     # Don't try to understand this query. Just know that it gets interests
     # and their corresponding laws from the db
     curr.execute("select interest, title"
-                " from (select laws.interest, laws.law"
+                 " from (select laws.interest, laws.law"
                  ' from (select interest from users_and_interests where "user" = %s) as interests'
-                   " JOIN interests_and_laws as laws"
-                     " on interests.interest = laws.interest)"
-                     " as t join federal_law as f on t.law = f.id",
-                     (str(user),))
+                 " JOIN interests_and_laws as laws"
+                 " on interests.interest = laws.interest)"
+                 " as t join federal_law as f on t.law = f.id",
+                 (str(user),))
 
 
     response = curr.fetchall()

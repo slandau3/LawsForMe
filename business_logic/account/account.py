@@ -15,9 +15,11 @@ def validate(username: str, password: str) -> dict:
     TODO
     """
     if username.strip() == "":
-        return {"success": False, "error": "Username cannot be left blank."}
+        return {"success": False, "error": "Username cannot be left blank.",
+                "field": "username"}
     elif password.strip() == "":
-        return {"success": False, "error": "Password cannot be left blank."}
+        return {"success": False, "error": "Password cannot be left blank.",
+                "field": "password"}
     else:
         return sql.verify_credentials(username, password)
 
@@ -29,23 +31,27 @@ def create(username: str, password: str, firstname: str, lastname: str, \
     """
     if not username:
         return {"success": False,
-                "errors": "Username is required."}
+                "errors": "Username is required.",
+                "field": "username"}
     elif sql.is_username_taken(username):
         return {"success": False,
-                "errors": "That username has already been taken."}
+                "errors": "That username has already been taken.",
+                "field": "username"}
     elif not password:
         return {"success": False,
-                "errors": "Password is required."}
+                "errors": "Password is required.",
+                "field": "password"}
     elif not interests:
         return  {"success": False,
-                "errors": "You are required to have at least one interest"}
+                 "errors": "You are required to have at least one interest",
+                 "field": "interests"}
 
     interests = interests.split(',')  # Interests should be comma seperated
     registration_response = sql.register_account(username, password, firstname, lastname, \
             email, state, city, street, street2, interests)
 
     if registration_response['success']:
-        # If we were registered successfully 
+        # If we were registered successfully
         # update the interest associations on another thread
         EXECUTOR.submit(sql.update_interests, interests)
     return registration_response
