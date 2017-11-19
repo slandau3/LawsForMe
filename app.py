@@ -6,9 +6,10 @@ import json
 import business_logic.account.account as account
 import business_logic.sql.db_adapter as db
 
+
 # initialize flask
 from flask import Flask, session, render_template, \
-                request, Response, redirect
+                request, Response, redirect, flash
 app = Flask(__name__)
 app.secret_key = "secret key"
 
@@ -116,13 +117,11 @@ def create_account():
                 firstname, lastname, email, state, city, street, \
                 street2, interests)
         print(create_account_resp)
-        if create_account_resp['success']:
+        if not create_account_resp['success']:
+            return render_template("createAccount.html", username = create_account_resp.get("username", ""), password = create_account_resp.get("password", ""),interests = create_account_resp.get("interests", ""))
+        else:
             session['uuid'] = create_account_resp.get('uuid')
             return redirect("/login/")
-        else:
-            print("failed")
-            # TODO: make the page display the fields that caused an error
-            return Response(json.dumps(create_account_resp), mimetype='application/json; charset=utf-8')
     else:
         raise NotImplementedError()
 

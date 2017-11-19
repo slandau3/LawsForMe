@@ -15,8 +15,8 @@ def validate(username: str, password: str) -> dict:
     TODO
     """
     if username.strip() == "":
-        return {"success": False, "error": "Username cannot be left blank.",
-                "field": "username"}
+        return {"success": False,
+                "username":"Username cannot be left blank."}
     elif password.strip() == "":
         return {"success": False, "error": "Password cannot be left blank.",
                 "field": "password"}
@@ -29,23 +29,24 @@ def create(username: str, password: str, firstname: str, lastname: str, \
     """
     TODO
     """
+    error = {}
     if not username:
-        return {"success": False,
-                "errors": "Username is required.",
-                "field": "username"}
+        error["success"] = False
+        error["username"] = "Username cannot be left blank."
     elif sql.is_username_taken(username):
-        return {"success": False,
-                "errors": "That username has already been taken.",
-                "field": "username"}
-    elif not password:
-        return {"success": False,
-                "errors": "Password is required.",
-                "field": "password"}
-    elif not interests:
-        return  {"success": False,
-                 "errors": "You are required to have at least one interest",
-                 "field": "interests"}
+        error["success"] = False
+        error["username"] = "Username is already taken"
+    if not password:
+        error["success"] = False
+        error["password"] = "Password cannot be left blank"
 
+    if not interests:
+        error["success"] = False
+        error["interests"] = "You are required to have at least one interest"
+
+    if not error["success"]:
+
+        return error
     interests = interests.split(',')  # Interests should be comma seperated
     registration_response = sql.register_account(username, password, firstname, lastname, \
             email, state, city, street, street2, interests)
