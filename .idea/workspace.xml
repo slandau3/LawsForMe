@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d75eac56-b503-4b5b-ab5b-eaf21b408204" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.py" afterPath="$PROJECT_DIR$/app.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/business_logic/account/account.py" afterPath="$PROJECT_DIR$/business_logic/account/account.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/createAccount.html" afterPath="$PROJECT_DIR$/templates/createAccount.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/business_logic/sql/db_adapter.py" afterPath="$PROJECT_DIR$/business_logic/sql/db_adapter.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/login.html" afterPath="$PROJECT_DIR$/templates/login.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,41 +15,20 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/LawsForMe$LawsForMe.coverage" NAME="LawsForMe Coverage Results" MODIFIED="1511126732336" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/LawsForMe$LawsForMe.coverage" NAME="LawsForMe Coverage Results" MODIFIED="1511137328172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="120" column="206" lean-forward="false" selection-start-line="120" selection-start-column="206" selection-end-line="120" selection-end-column="206" />
-              <folding>
-                <element signature="e#14#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="createAccount.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="createAccount.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/createAccount.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="235">
-              <caret line="124" column="75" lean-forward="false" selection-start-line="124" selection-start-column="75" selection-end-line="124" selection-end-column="75" />
+              <caret line="124" column="62" lean-forward="true" selection-start-line="124" selection-start-column="62" selection-end-line="124" selection-end-column="103" />
               <folding>
                 <element signature="n#style#0;n#p#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#3;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#11;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="account.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/business_logic/account/account.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="40" column="24" lean-forward="true" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -57,8 +36,33 @@
       <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-938">
-              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="18" selection-end-column="6" />
+            <state relative-caret-position="217">
+              <caret line="65" column="95" lean-forward="false" selection-start-line="65" selection-start-column="87" selection-end-line="65" selection-end-column="95" />
+              <folding>
+                <element signature="n#style#0;n#p#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#2;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="193">
+              <caret line="77" column="40" lean-forward="false" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="40" />
+              <folding>
+                <element signature="e#14#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="account.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/business_logic/account/account.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="19" column="42" lean-forward="false" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -67,24 +71,25 @@
       <file leaf-file-name="db_adapter.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/business_logic/sql/db_adapter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="84" column="32" lean-forward="false" selection-start-line="84" selection-start-column="32" selection-end-line="84" selection-end-column="32" />
+            <state relative-caret-position="405">
+              <caret line="192" column="28" lean-forward="false" selection-start-line="192" selection-start-column="20" selection-end-line="192" selection-end-column="28" />
               <folding>
-                <marker date="1511122337304" expanded="true" signature="1943:1998" ph="SELECT id FR... user" />
-                <marker date="1511122337304" expanded="true" signature="3762:3869" ph="INSERT INTO &quot;user&quot;... " />
-                <marker date="1511122337304" expanded="true" signature="4013:4119" ph="INSERT INTO address... " />
-                <marker date="1511122337304" expanded="true" signature="4269:4428" ph="INSERT INTO interests... " />
-                <marker date="1511122337304" expanded="true" signature="4496:4561" ph="INSERT INTO users_and_interests... " />
-                <marker date="1511122337304" expanded="true" signature="5163:5201" ph="SELECT 1 FRO... user" />
-                <marker date="1511122337304" expanded="true" signature="5877:5966" ph="SELECT id FR... federal_law" />
-                <marker date="1511122337304" expanded="true" signature="6174:6431" ph="INSERT INTO interests_and_laws... " />
-                <marker date="1511122337304" expanded="true" signature="6954:7306" ph="select inter... interest" />
-                <marker date="1511122337304" expanded="true" signature="7003:7242" ph="select laws.... interest" />
-                <marker date="1511122337304" expanded="true" signature="7060:7118" ph="select inter... users_and_interests" />
-                <marker date="1511122337304" expanded="true" signature="7801:7825" ph="SELECT * FRO... discussion" />
-                <marker date="1511122337304" expanded="true" signature="8339:8364" ph="select * FRO... federal_law" />
-                <marker date="1511122337304" expanded="true" signature="9048:9085" ph="delete from " />
-                <marker date="1511122337304" expanded="true" signature="9152:9188" ph="delete from " />
+                <marker date="1511137502321" expanded="true" signature="1943:1998" ph="SELECT id FR... user" />
+                <marker date="1511137502321" expanded="true" signature="3762:3869" ph="INSERT INTO &quot;user&quot;... " />
+                <marker date="1511137502321" expanded="true" signature="4013:4119" ph="INSERT INTO address... " />
+                <marker date="1511137502321" expanded="true" signature="4269:4428" ph="INSERT INTO interests... " />
+                <marker date="1511137502321" expanded="true" signature="4496:4561" ph="INSERT INTO users_and_interests... " />
+                <marker date="1511137502321" expanded="true" signature="5163:5201" ph="SELECT 1 FRO... user" />
+                <marker date="1511137502321" expanded="true" signature="5819:5857" ph="SELECT 1 FRO... user" />
+                <marker date="1511137502321" expanded="true" signature="6531:6620" ph="SELECT id FR... federal_law" />
+                <marker date="1511137502321" expanded="true" signature="6828:7085" ph="INSERT INTO interests_and_laws... " />
+                <marker date="1511137502321" expanded="true" signature="7608:7960" ph="select inter... interest" />
+                <marker date="1511137502321" expanded="true" signature="7657:7896" ph="select laws.... interest" />
+                <marker date="1511137502321" expanded="true" signature="7714:7772" ph="select inter... users_and_interests" />
+                <marker date="1511137502321" expanded="true" signature="8455:8479" ph="SELECT * FRO... discussion" />
+                <marker date="1511137502321" expanded="true" signature="8993:9018" ph="select * FRO... federal_law" />
+                <marker date="1511137502321" expanded="true" signature="9702:9739" ph="delete from " />
+                <marker date="1511137502321" expanded="true" signature="9806:9842" ph="delete from " />
               </folding>
             </state>
           </provider>
@@ -105,11 +110,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/business_logic/sql/db_adapter.py" />
+        <option value="$PROJECT_DIR$/templates/createAccount.html" />
         <option value="$PROJECT_DIR$/templates/login.html" />
         <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/business_logic/sql/db_adapter.py" />
         <option value="$PROJECT_DIR$/business_logic/account/account.py" />
-        <option value="$PROJECT_DIR$/templates/createAccount.html" />
       </list>
     </option>
   </component>
@@ -120,8 +125,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-132" />
-    <option name="y" value="-9" />
+    <option name="x" value="123" />
+    <option name="y" value="-22" />
     <option name="width" value="976" />
     <option name="height" value="1038" />
   </component>
@@ -235,7 +240,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -268,6 +273,7 @@
           <folding>
             <element signature="n#style#0;n#p#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#3;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#11;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -276,7 +282,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1407">
           <caret line="67" column="28" lean-forward="true" selection-start-line="67" selection-start-column="28" selection-end-line="67" selection-end-column="28" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#p#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#2;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -293,21 +302,22 @@
         <state relative-caret-position="1701">
           <caret line="84" column="32" lean-forward="true" selection-start-line="84" selection-start-column="32" selection-end-line="84" selection-end-column="32" />
           <folding>
-            <marker date="1511122337304" expanded="true" signature="1943:1998" ph="SELECT id FR... user" />
-            <marker date="1511122337304" expanded="true" signature="3762:3869" ph="INSERT INTO &quot;user&quot;... " />
-            <marker date="1511122337304" expanded="true" signature="4013:4119" ph="INSERT INTO address... " />
-            <marker date="1511122337304" expanded="true" signature="4269:4428" ph="INSERT INTO interests... " />
-            <marker date="1511122337304" expanded="true" signature="4496:4561" ph="INSERT INTO users_and_interests... " />
-            <marker date="1511122337304" expanded="true" signature="5163:5201" ph="SELECT 1 FRO... user" />
-            <marker date="1511122337304" expanded="true" signature="5877:5966" ph="SELECT id FR... federal_law" />
-            <marker date="1511122337304" expanded="true" signature="6174:6431" ph="INSERT INTO interests_and_laws... " />
-            <marker date="1511122337304" expanded="true" signature="6954:7306" ph="select inter... interest" />
-            <marker date="1511122337304" expanded="true" signature="7003:7242" ph="select laws.... interest" />
-            <marker date="1511122337304" expanded="true" signature="7060:7118" ph="select inter... users_and_interests" />
-            <marker date="1511122337304" expanded="true" signature="7801:7825" ph="SELECT * FRO... discussion" />
-            <marker date="1511122337304" expanded="true" signature="8339:8364" ph="select * FRO... federal_law" />
-            <marker date="1511122337304" expanded="true" signature="9048:9085" ph="delete from " />
-            <marker date="1511122337304" expanded="true" signature="9152:9188" ph="delete from " />
+            <marker date="1511137502321" expanded="true" signature="1943:1998" ph="SELECT id FR... user" />
+            <marker date="1511137502321" expanded="true" signature="3762:3869" ph="INSERT INTO &quot;user&quot;... " />
+            <marker date="1511137502321" expanded="true" signature="4013:4119" ph="INSERT INTO address... " />
+            <marker date="1511137502321" expanded="true" signature="4269:4428" ph="INSERT INTO interests... " />
+            <marker date="1511137502321" expanded="true" signature="4496:4561" ph="INSERT INTO users_and_interests... " />
+            <marker date="1511137502321" expanded="true" signature="5163:5201" ph="SELECT 1 FRO... user" />
+            <marker date="1511137502321" expanded="true" signature="5819:5857" ph="SELECT 1 FRO... user" />
+            <marker date="1511137502321" expanded="true" signature="6531:6620" ph="SELECT id FR... federal_law" />
+            <marker date="1511137502321" expanded="true" signature="6828:7085" ph="INSERT INTO interests_and_laws... " />
+            <marker date="1511137502321" expanded="true" signature="7608:7960" ph="select inter... interest" />
+            <marker date="1511137502321" expanded="true" signature="7657:7896" ph="select laws.... interest" />
+            <marker date="1511137502321" expanded="true" signature="7714:7772" ph="select inter... users_and_interests" />
+            <marker date="1511137502321" expanded="true" signature="8455:8479" ph="SELECT * FRO... discussion" />
+            <marker date="1511137502321" expanded="true" signature="8993:9018" ph="select * FRO... federal_law" />
+            <marker date="1511137502321" expanded="true" signature="9702:9739" ph="delete from " />
+            <marker date="1511137502321" expanded="true" signature="9806:9842" ph="delete from " />
           </folding>
         </state>
       </provider>
@@ -329,6 +339,7 @@
           <folding>
             <element signature="n#style#0;n#p#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#3;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#11;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -346,21 +357,22 @@
         <state relative-caret-position="1890">
           <caret line="93" column="27" lean-forward="true" selection-start-line="93" selection-start-column="27" selection-end-line="93" selection-end-column="27" />
           <folding>
-            <marker date="1511122337304" expanded="true" signature="1943:1998" ph="SELECT id FR... user" />
-            <marker date="1511122337304" expanded="true" signature="3762:3869" ph="INSERT INTO &quot;user&quot;... " />
-            <marker date="1511122337304" expanded="true" signature="4013:4119" ph="INSERT INTO address... " />
-            <marker date="1511122337304" expanded="true" signature="4269:4428" ph="INSERT INTO interests... " />
-            <marker date="1511122337304" expanded="true" signature="4496:4561" ph="INSERT INTO users_and_interests... " />
-            <marker date="1511122337304" expanded="true" signature="5163:5201" ph="SELECT 1 FRO... user" />
-            <marker date="1511122337304" expanded="true" signature="5877:5966" ph="SELECT id FR... federal_law" />
-            <marker date="1511122337304" expanded="true" signature="6174:6431" ph="INSERT INTO interests_and_laws... " />
-            <marker date="1511122337304" expanded="true" signature="6954:7306" ph="select inter... interest" />
-            <marker date="1511122337304" expanded="true" signature="7003:7242" ph="select laws.... interest" />
-            <marker date="1511122337304" expanded="true" signature="7060:7118" ph="select inter... users_and_interests" />
-            <marker date="1511122337304" expanded="true" signature="7801:7825" ph="SELECT * FRO... discussion" />
-            <marker date="1511122337304" expanded="true" signature="8339:8364" ph="select * FRO... federal_law" />
-            <marker date="1511122337304" expanded="true" signature="9048:9085" ph="delete from " />
-            <marker date="1511122337304" expanded="true" signature="9152:9188" ph="delete from " />
+            <marker date="1511137502321" expanded="true" signature="1943:1998" ph="SELECT id FR... user" />
+            <marker date="1511137502321" expanded="true" signature="3762:3869" ph="INSERT INTO &quot;user&quot;... " />
+            <marker date="1511137502321" expanded="true" signature="4013:4119" ph="INSERT INTO address... " />
+            <marker date="1511137502321" expanded="true" signature="4269:4428" ph="INSERT INTO interests... " />
+            <marker date="1511137502321" expanded="true" signature="4496:4561" ph="INSERT INTO users_and_interests... " />
+            <marker date="1511137502321" expanded="true" signature="5163:5201" ph="SELECT 1 FRO... user" />
+            <marker date="1511137502321" expanded="true" signature="5819:5857" ph="SELECT 1 FRO... user" />
+            <marker date="1511137502321" expanded="true" signature="6531:6620" ph="SELECT id FR... federal_law" />
+            <marker date="1511137502321" expanded="true" signature="6828:7085" ph="INSERT INTO interests_and_laws... " />
+            <marker date="1511137502321" expanded="true" signature="7608:7960" ph="select inter... interest" />
+            <marker date="1511137502321" expanded="true" signature="7657:7896" ph="select laws.... interest" />
+            <marker date="1511137502321" expanded="true" signature="7714:7772" ph="select inter... users_and_interests" />
+            <marker date="1511137502321" expanded="true" signature="8455:8479" ph="SELECT * FRO... discussion" />
+            <marker date="1511137502321" expanded="true" signature="8993:9018" ph="select * FRO... federal_law" />
+            <marker date="1511137502321" expanded="true" signature="9702:9739" ph="delete from " />
+            <marker date="1511137502321" expanded="true" signature="9806:9842" ph="delete from " />
           </folding>
         </state>
       </provider>
@@ -382,6 +394,7 @@
           <folding>
             <element signature="n#style#0;n#p#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#3;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#11;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -391,21 +404,22 @@
         <state relative-caret-position="1890">
           <caret line="93" column="27" lean-forward="true" selection-start-line="93" selection-start-column="27" selection-end-line="93" selection-end-column="27" />
           <folding>
-            <marker date="1511122337304" expanded="true" signature="1943:1998" ph="SELECT id FR... user" />
-            <marker date="1511122337304" expanded="true" signature="3762:3869" ph="INSERT INTO &quot;user&quot;... " />
-            <marker date="1511122337304" expanded="true" signature="4013:4119" ph="INSERT INTO address... " />
-            <marker date="1511122337304" expanded="true" signature="4269:4428" ph="INSERT INTO interests... " />
-            <marker date="1511122337304" expanded="true" signature="4496:4561" ph="INSERT INTO users_and_interests... " />
-            <marker date="1511122337304" expanded="true" signature="5163:5201" ph="SELECT 1 FRO... user" />
-            <marker date="1511122337304" expanded="true" signature="5877:5966" ph="SELECT id FR... federal_law" />
-            <marker date="1511122337304" expanded="true" signature="6174:6431" ph="INSERT INTO interests_and_laws... " />
-            <marker date="1511122337304" expanded="true" signature="6954:7306" ph="select inter... interest" />
-            <marker date="1511122337304" expanded="true" signature="7003:7242" ph="select laws.... interest" />
-            <marker date="1511122337304" expanded="true" signature="7060:7118" ph="select inter... users_and_interests" />
-            <marker date="1511122337304" expanded="true" signature="7801:7825" ph="SELECT * FRO... discussion" />
-            <marker date="1511122337304" expanded="true" signature="8339:8364" ph="select * FRO... federal_law" />
-            <marker date="1511122337304" expanded="true" signature="9048:9085" ph="delete from " />
-            <marker date="1511122337304" expanded="true" signature="9152:9188" ph="delete from " />
+            <marker date="1511137502321" expanded="true" signature="1943:1998" ph="SELECT id FR... user" />
+            <marker date="1511137502321" expanded="true" signature="3762:3869" ph="INSERT INTO &quot;user&quot;... " />
+            <marker date="1511137502321" expanded="true" signature="4013:4119" ph="INSERT INTO address... " />
+            <marker date="1511137502321" expanded="true" signature="4269:4428" ph="INSERT INTO interests... " />
+            <marker date="1511137502321" expanded="true" signature="4496:4561" ph="INSERT INTO users_and_interests... " />
+            <marker date="1511137502321" expanded="true" signature="5163:5201" ph="SELECT 1 FRO... user" />
+            <marker date="1511137502321" expanded="true" signature="5819:5857" ph="SELECT 1 FRO... user" />
+            <marker date="1511137502321" expanded="true" signature="6531:6620" ph="SELECT id FR... federal_law" />
+            <marker date="1511137502321" expanded="true" signature="6828:7085" ph="INSERT INTO interests_and_laws... " />
+            <marker date="1511137502321" expanded="true" signature="7608:7960" ph="select inter... interest" />
+            <marker date="1511137502321" expanded="true" signature="7657:7896" ph="select laws.... interest" />
+            <marker date="1511137502321" expanded="true" signature="7714:7772" ph="select inter... users_and_interests" />
+            <marker date="1511137502321" expanded="true" signature="8455:8479" ph="SELECT * FRO... discussion" />
+            <marker date="1511137502321" expanded="true" signature="8993:9018" ph="select * FRO... federal_law" />
+            <marker date="1511137502321" expanded="true" signature="9702:9739" ph="delete from " />
+            <marker date="1511137502321" expanded="true" signature="9806:9842" ph="delete from " />
           </folding>
         </state>
       </provider>
@@ -435,6 +449,7 @@
           <folding>
             <element signature="n#style#0;n#p#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#3;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#11;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -456,6 +471,7 @@
           <folding>
             <element signature="n#style#0;n#p#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#3;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#11;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -470,64 +486,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/business_logic/sql/db_adapter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="84" column="32" lean-forward="false" selection-start-line="84" selection-start-column="32" selection-end-line="84" selection-end-column="32" />
-          <folding>
-            <marker date="1511122337304" expanded="true" signature="1943:1998" ph="SELECT id FR... user" />
-            <marker date="1511122337304" expanded="true" signature="3762:3869" ph="INSERT INTO &quot;user&quot;... " />
-            <marker date="1511122337304" expanded="true" signature="4013:4119" ph="INSERT INTO address... " />
-            <marker date="1511122337304" expanded="true" signature="4269:4428" ph="INSERT INTO interests... " />
-            <marker date="1511122337304" expanded="true" signature="4496:4561" ph="INSERT INTO users_and_interests... " />
-            <marker date="1511122337304" expanded="true" signature="5163:5201" ph="SELECT 1 FRO... user" />
-            <marker date="1511122337304" expanded="true" signature="5877:5966" ph="SELECT id FR... federal_law" />
-            <marker date="1511122337304" expanded="true" signature="6174:6431" ph="INSERT INTO interests_and_laws... " />
-            <marker date="1511122337304" expanded="true" signature="6954:7306" ph="select inter... interest" />
-            <marker date="1511122337304" expanded="true" signature="7003:7242" ph="select laws.... interest" />
-            <marker date="1511122337304" expanded="true" signature="7060:7118" ph="select inter... users_and_interests" />
-            <marker date="1511122337304" expanded="true" signature="7801:7825" ph="SELECT * FRO... discussion" />
-            <marker date="1511122337304" expanded="true" signature="8339:8364" ph="select * FRO... federal_law" />
-            <marker date="1511122337304" expanded="true" signature="9048:9085" ph="delete from " />
-            <marker date="1511122337304" expanded="true" signature="9152:9188" ph="delete from " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-938">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="18" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="120" column="206" lean-forward="false" selection-start-line="120" selection-start-column="206" selection-end-line="120" selection-end-column="206" />
+        <state relative-caret-position="217">
+          <caret line="65" column="95" lean-forward="false" selection-start-line="65" selection-start-column="87" selection-end-line="65" selection-end-column="95" />
           <folding>
-            <element signature="e#14#25#0" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#2;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/business_logic/account/account.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="40" column="24" lean-forward="true" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/createAccount.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
-          <caret line="124" column="75" lean-forward="false" selection-start-line="124" selection-start-column="75" selection-end-line="124" selection-end-column="75" />
+          <caret line="124" column="62" lean-forward="true" selection-start-line="124" selection-start-column="62" selection-end-line="124" selection-end-column="103" />
           <folding>
             <element signature="n#style#0;n#p#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#3;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#11;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="77" column="40" lean-forward="false" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="40" />
+          <folding>
+            <element signature="e#14#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/business_logic/sql/db_adapter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="192" column="28" lean-forward="false" selection-start-line="192" selection-start-column="20" selection-end-line="192" selection-end-column="28" />
+          <folding>
+            <marker date="1511137502321" expanded="true" signature="1943:1998" ph="SELECT id FR... user" />
+            <marker date="1511137502321" expanded="true" signature="3762:3869" ph="INSERT INTO &quot;user&quot;... " />
+            <marker date="1511137502321" expanded="true" signature="4013:4119" ph="INSERT INTO address... " />
+            <marker date="1511137502321" expanded="true" signature="4269:4428" ph="INSERT INTO interests... " />
+            <marker date="1511137502321" expanded="true" signature="4496:4561" ph="INSERT INTO users_and_interests... " />
+            <marker date="1511137502321" expanded="true" signature="5163:5201" ph="SELECT 1 FRO... user" />
+            <marker date="1511137502321" expanded="true" signature="5819:5857" ph="SELECT 1 FRO... user" />
+            <marker date="1511137502321" expanded="true" signature="6531:6620" ph="SELECT id FR... federal_law" />
+            <marker date="1511137502321" expanded="true" signature="6828:7085" ph="INSERT INTO interests_and_laws... " />
+            <marker date="1511137502321" expanded="true" signature="7608:7960" ph="select inter... interest" />
+            <marker date="1511137502321" expanded="true" signature="7657:7896" ph="select laws.... interest" />
+            <marker date="1511137502321" expanded="true" signature="7714:7772" ph="select inter... users_and_interests" />
+            <marker date="1511137502321" expanded="true" signature="8455:8479" ph="SELECT * FRO... discussion" />
+            <marker date="1511137502321" expanded="true" signature="8993:9018" ph="select * FRO... federal_law" />
+            <marker date="1511137502321" expanded="true" signature="9702:9739" ph="delete from " />
+            <marker date="1511137502321" expanded="true" signature="9806:9842" ph="delete from " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/business_logic/account/account.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="19" column="42" lean-forward="false" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>

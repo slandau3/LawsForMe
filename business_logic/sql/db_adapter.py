@@ -177,7 +177,28 @@ def is_username_taken(username: str) -> bool:
     # already exists
     return response != None
 
+def is_password_taken(password: str) -> bool:
+    """
+    Determine if the given username is already registered
+    in the database.
 
+    :return: True if the username is registered, False otherwise
+    """
+    # open the db connection
+    conn, curr = __open_connections()
+
+    curr.execute('SELECT 1 FROM "user" WHERE password=%s', (password,))
+
+    # fetch the result
+    response = curr.fetchone()
+
+    # close the db connection
+    __close_connections(conn, curr)
+
+    # if response is None then the username has not been taken
+    # if response is not None then that means someone with that username
+    # already exists
+    return response != None
 def update_interests(interests: list) -> None:
     """
     Link interests to the laws that affect it. It's possible

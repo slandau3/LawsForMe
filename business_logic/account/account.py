@@ -14,12 +14,24 @@ def validate(username: str, password: str) -> dict:
     """
     TODO
     """
+    error = {}
     if username.strip() == "":
-        return {"success": False,
-                "username":"Username cannot be left blank."}
-    elif password.strip() == "":
-        return {"success": False, "error": "Password cannot be left blank.",
-                "field": "password"}
+        error["success"] = False
+        error["username"] = "Username cannot be left blank."
+    elif not sql.is_username_taken(username):
+        error["success"] = False
+        error["username"] = "Username is incorrect"
+
+    if password.strip() == "":
+        error["success"] = False
+        error["password"] = "Password cannot be left blank."
+    elif not sql.is_password_taken(password):
+        error["success"] = False
+        error["password"] = "Password is incorrect"
+
+    if not error["success"]:
+        return error
+
     else:
         return sql.verify_credentials(username, password)
 
@@ -45,8 +57,8 @@ def create(username: str, password: str, firstname: str, lastname: str, \
         error["interests"] = "You are required to have at least one interest"
 
     if not error["success"]:
-
         return error
+
     interests = interests.split(',')  # Interests should be comma seperated
     registration_response = sql.register_account(username, password, firstname, lastname, \
             email, state, city, street, street2, interests)

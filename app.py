@@ -82,6 +82,8 @@ def login():
         if login_attempt['success']:
             session['uuid'] = login_attempt['uuid']
             return redirect("/") # TODO: Figure out where we actually want to redirect them
+        else:
+            return render_template("login.html", username = login_attempt.get("username", ""), password = login_attempt.get("password", ""))
 
         # An error has occured, we need to respond to the request with details
         # about what went wrong in json form
@@ -118,7 +120,10 @@ def create_account():
                 street2, interests)
         print(create_account_resp)
         if not create_account_resp['success']:
-            return render_template("createAccount.html", username = create_account_resp.get("username", ""), password = create_account_resp.get("password", ""),interests = create_account_resp.get("interests", ""))
+            return render_template("createAccount.html",
+                                   username = create_account_resp.get("username", ""),
+                                   password = create_account_resp.get("password", ""),
+                                   interests = create_account_resp.get("interests", ""))
         else:
             session['uuid'] = create_account_resp.get('uuid')
             return redirect("/login/")

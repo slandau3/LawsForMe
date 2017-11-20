@@ -63,8 +63,8 @@
 <form id="login-screen" method = "post" action = "/login/">
     <h3>Login to LawsForMe</h3>
     <p>Sign in using your Registered Account</p>
-    <input type="text" name="username" placeholder="Username">
-    <input type="password" name="password" placeholder="Password">
+    <input type="text" name="username" placeholder="Username"><p style="color: red">{{ username }}</p>
+    <input type="password" name="password" placeholder="Password"><p style="color: red">{{ password }}</p>
     <button>Sign In</button>
     <div class="LoginOptions">
         <a class="pull_left" href="#">Forgot Password?</a>
