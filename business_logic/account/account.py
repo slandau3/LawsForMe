@@ -46,7 +46,7 @@ def validate(username: str, password: str) -> dict:
         validation_check["password"] = "Password cannot be left blank."
 
 
-    if not validation_check["success"]:
+    if not validation_check.get("success", True):
         return validation_check
 
     else:
@@ -89,7 +89,7 @@ def create(username: str, password: str, firstname: str, lastname: str, \
         validation_check["success"] = False
         validation_check["interests"] = "You are required to have at least one interest"
 
-    if not validation_check["success"]:
+    if not validation_check.get("success", True):
         return validation_check
 
     interests = interests.split(',')  # Interests should be comma seperated

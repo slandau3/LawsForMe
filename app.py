@@ -154,12 +154,12 @@ def create_account():
 def load_forum_discussions():
     if request.method == 'GET':
         discussions = db.get_num_4_disc()
-        return render_template('forum.html', disc=discussions)
+        return render_template('forum.html', disc=discussions, logged_in=__session_has_uuid())
 
     elif request.method == 'POST':
         type = request.form.get('sort')
         discussions = db.get_num_4_disc_sort(type)
-        return render_template('forum.html', disc=discussions, t = type)
+        return render_template('forum.html', disc=discussions, t = type, logged_in=__session_has_uuid())
 
 
 
@@ -178,7 +178,7 @@ def __load_comments_get(next_name):
     thread = db.get_thread(next_name)
     comments = db.get_comments(next_name)
     # return render_template('thread.html', thr = threads)
-    return render_template('comments.html', thr=thread, com=comments, nn=next_name)
+    return render_template('comments.html', thr=thread, com=comments, nn=next_name, logged_in=__session_has_uuid())
 
 
 @app.route('/forum/discussions/<next_name>', methods=['GET', 'POST'])

@@ -79,7 +79,6 @@ def verify_credentials(username: str, password: str) -> dict:
 
 
     if response is None:
-
         return {"username": "Username or password is incorrect.",
                 "success": False}
     else:
@@ -332,7 +331,7 @@ def add_comments(c, thread_id, user_id: uuid):
     curr.execute('INSERT INTO forum_comment(id, author, content, thread_id) \
                 VALUES ((SELECT MAX(id) FROM forum_comment) + 1, '
                  '%s, %s, %s)', \
-                 (user_id, c, thread_id))
+                 (str(user_id), c, thread_id))
 
     # don't remember if this is what it is
 
