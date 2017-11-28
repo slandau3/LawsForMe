@@ -51,6 +51,12 @@ def home():
     return render_template('index.html', logged_in=logged_in)
 
 
+@app.route('/cake/<haha>')
+def get(haha):
+    words = db.get_words(haha)
+    return render_template('wiki.html', paragraph = words)
+
+
 
 @app.route('/logout/', methods=['GET', 'POST'])
 def logout():

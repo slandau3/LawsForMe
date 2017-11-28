@@ -384,6 +384,19 @@ def get_comments(idd):
     return response
 
 
+def get_words(word):
+    conn, curr = __open_connections()
+
+    curr.execute('SELECT content FROM federal_law WHERE title LIKE %s', (word,));
+
+    #    curr.execute('SELECT * FROM forum_comment WHERE forum_comment.thread_id = %s', (id,))
+
+    response = curr.fetchall()
+
+    __close_connections(conn, curr)
+
+    return response
+
 
 
 
@@ -500,6 +513,6 @@ def __test_grab_all_kinds():
 #get_num_4_disc_sort("created_at ASC ")
 
 
-
+get_words("Partial-Birth Abortion Ban Act");
 
 
