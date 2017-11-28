@@ -248,6 +248,7 @@ def get_laws_of_interests(user: uuid) -> dict:
 
 
 def get_discussions():
+    # returns all the discussions for display
     conn, curr = __open_connections()
 
     curr.execute('SELECT * FROM discussion')
@@ -260,6 +261,7 @@ def get_discussions():
     return response
 
 def get_threads(id):
+    #returns all the threads for display
     conn, curr = __open_connections()
 
     curr.execute('SELECT * FROM thread WHERE thread.discussion_id = %s', (id,))
@@ -273,7 +275,7 @@ def get_threads(id):
 
 
 def get_num_4_disc():
-    # Returns number of threads per discussion
+    # Returns number of threads per discussion, with the discussions
     conn, curr = __open_connections()
 
     curr.execute('SELECT rsQuery1.num, rsQuery2.* '
@@ -290,12 +292,13 @@ def get_num_4_disc():
     return response
 
 
-def get_num_4_disc_sort(lol):
+def get_num_4_disc_sort(type):
+    # sorted discussions according to specifier 'type' for discussion with 'id'
     conn, curr = __open_connections()
     query = 'SELECT * FROM ( SELECT rsQuery1.num, rsQuery2.* ' \
             'FROM (SELECT discussion_id, COUNT(*) AS num FROM thread GROUP BY discussion_id ) AS rsQuery1 ' \
             'FULL OUTER JOIN' \
-            ' discussion AS rsQuery2 ON rsQuery1.discussion_id = rsQuery2.id ) AS foo ORDER BY {}'.format(lol)
+            ' discussion AS rsQuery2 ON rsQuery1.discussion_id = rsQuery2.id ) AS foo ORDER BY {}'.format(type)
     curr.execute(query)
 
     response = curr.fetchall()
@@ -317,6 +320,24 @@ def get_num_comments(id):
                  'ON rsQuery1.thread_id = rsQuery2.id', (id,))
 
     # don't remember if this is what it is
+    response = curr.fetchall()
+
+    __close_connections(conn, curr)
+
+    return response
+
+
+def get_num_4_thread_sort(id, type):
+    # sorted comments according to specifier 'type' for thread with 'id'
+
+    conn, curr = __open_connections()
+    query = 'SELECT rsQuery1.num, rsQuery2.* ' \
+            'FROM (SELECT thread_id, COUNT(*) AS num FROM forum_comment GROUP BY thread_id ) AS rsQuery1' \
+            ' RIGHT JOIN ( SELECT * FROM thread WHERE thread.discussion_id = {0}) AS rsQuery2 ' \
+            ' ON rsQuery1.thread_id = rsQuery2.id ORDER BY {1}'.format(id, type)
+
+    curr.execute(query)
+
     response = curr.fetchall()
 
     __close_connections(conn, curr)
@@ -476,4 +497,9 @@ def __test_grab_all_kinds():
 # uncomment the line below to run the test that prints out all discussions with corresponding threads
 #__test_grab_all_discussions()
 
-#get_num_4_disc_sort("created_at ASC")
+#get_num_4_disc_sort("created_at ASC ")
+
+
+
+
+
