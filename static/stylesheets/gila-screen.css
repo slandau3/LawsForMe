@@ -350,6 +350,7 @@ dd {
 
 .pull_right{
     float: right;
+<<<<<<< HEAD
 }
 
 
@@ -512,3 +513,6 @@ input[type=submit]:hover {
   width: 90%;
   height: 50px;
 }
+=======
+}
+>>>>>>> ed49f9cb1317778847417ddc02cb651b5981acb6

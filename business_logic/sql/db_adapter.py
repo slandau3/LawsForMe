@@ -79,7 +79,8 @@ def verify_credentials(username: str, password: str) -> dict:
 
 
     if response is None:
-        return {"error": "Username or password is incorrect.",
+
+        return {"username": "Username or password is incorrect.",
                 "success": False}
     else:
         return {"success": True,
@@ -177,28 +178,7 @@ def is_username_taken(username: str) -> bool:
     # already exists
     return response != None
 
-def is_password_taken(password: str) -> bool:
-    """
-    Determine if the given username is already registered
-    in the database.
 
-    :return: True if the username is registered, False otherwise
-    """
-    # open the db connection
-    conn, curr = __open_connections()
-
-    curr.execute('SELECT 1 FROM "user" WHERE password=%s', (password,))
-
-    # fetch the result
-    response = curr.fetchone()
-
-    # close the db connection
-    __close_connections(conn, curr)
-
-    # if response is None then the username has not been taken
-    # if response is not None then that means someone with that username
-    # already exists
-    return response != None
 def update_interests(interests: list) -> None:
     """
     Link interests to the laws that affect it. It's possible
@@ -279,9 +259,6 @@ def get_discussions():
     __close_connections(conn, curr)
 
     return response
-
-
-
 
 def get_threads(id):
     conn, curr = __open_connections()
@@ -394,8 +371,6 @@ def get_comments(idd):
 #
 # MISC
 #
-
-
 def get_thread(id):
     conn, curr = __open_connections()
 
@@ -408,6 +383,7 @@ def get_thread(id):
     __close_connections(conn, curr)
 
     return response
+
 
 
 def __hash_password(password: str) -> str:
@@ -446,8 +422,10 @@ def __test_grab_all_discussions():
 
 
 
+
 def __test_grab_all_laws():
     conn, curr = __open_connections()
+
     curr.execute('select * FROM federal_law')
 
     for record in curr:
@@ -491,7 +469,7 @@ def __test_grab_all_kinds():
 
 
 # uncomment the line below to run the test that prints out all laws currently in the database
-#_test_grab_all_laws()
+# __test_grab_all_laws()
 
 # uncomment the line below to run the test that registers a user in the database, checks to see if they were registered successfully, then deletes them from the database
 # __test_create_account()
@@ -500,5 +478,3 @@ def __test_grab_all_kinds():
 #__test_grab_all_discussions()
 
 #get_num_4_disc_sort("created_at ASC")
-
-

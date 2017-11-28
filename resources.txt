@@ -1,7 +1,0 @@
-Resources to help with flask
-
-http://jinja.pocoo.org/docs/2.9/tricks/
-
-https://www.tutorialspoint.com/flask/index.htm
-
-http://opentechschool.github.io/python-flask/
