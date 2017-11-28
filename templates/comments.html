@@ -1,0 +1,32 @@
+{% extends 'template.html' %}
+
+{% block body %}
+
+<!-- ##### Main Copy ##### -->
+<div class = 'comments'>
+<h2>{{ thr[0][1] }}</h2>
+<p>{{ thr[0][4] }}</p>
+<div class='headz'>
+    <h3>Comments:</h3>
+    {% for c in com %}
+    <div>
+        <p><b>{{ c[2] }} {{ c[3]}}</b></p>
+        <p>{{ c[9] }}</p>
+    </div>
+    {% endfor %}
+    <form class = formSort method="post" action="/forum/discussions/{{nn}}">
+        Add Comment:<br>
+        <textarea class="resizedTextbox" name="comment" cols="40" rows="5"></textarea><br>
+        <input  type="submit" value="Submit">
+    </form>
+
+
+
+</div>
+
+</div>
+
+
+
+
+{% endblock %}

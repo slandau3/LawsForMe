@@ -1,0 +1,62 @@
+{% extends 'template.html' %}
+
+{% block body %}
+<!-- ##### Main Copy ##### -->
+<div id="main-copy">
+    {% if logged_in %}
+        <h2>Here are some laws we thought might interest you</h2>
+        {% for interest in laws_of_interests %}
+            <h3>Since you are interested in {{ interest|e }}</h3>
+            <ul>
+            {% for law in laws_of_interests.get(interest) %}
+                <li>{{ law|e }}</li>
+            {% endfor %}
+            </ul>
+        {% endfor %}
+
+    {% else %}
+  <h1 id="introduction" style="border-top: none; padding-top: 0;">Introduction</h1>
+    <p>LawsForMe™ is a web application that will inform users (via email) of laws that exist and that are being passed/proposed that might aﬀect their interests. When someone registers an account on the LawsForMe website their address will be used to determine their state and county. The user is assumed to be in the United States. The user will then enter their interests which will result in Federal, State, and County laws being scanned for possible laws that aﬀect their interest (positively or negatively). There will also be a forum section of the website where users will be able to discuss the impacts of various laws on various hobbies.</p>
+  
+  <h1 id="cross-browser">Use Cases</h1>
+  <ul>
+      <li>User enters Email/Password to login</li>
+      <li>User enters invalid Email/Password and notification is brought to login page with a warning, notifying them that it is invalid</li>
+      <li>To create an account, the user enters Email, Password, Address, if the credentials fail, user will be notified that the credentials are invalid and prompted to enter them again</li>
+      <li>Once the user logs in, they can select what interests, out of a list, by clicking on the elements of the list</li>
+      <li>Based on the user’s interests, laws will be listed, that effect their interests</li>
+      <li>User can click “OK” button to be brought to the law list page from the interest list page</li>
+      <li>User can click on the law and be taken to a page with more information related to the given law</li>
+      <li>User can hit the “back” button when on law page, to return to the page that lists laws</li>
+      <li>User can click on an icon on the law list page to be presented with a list of interests, which they can interact with</li>
+      <li>User can go to an information update screen to update their address</li>
+      <li>User can click the “Logout” button to be signed out of their account</li>
+  </ul> 
+    
+  <h1 id="stylesheets">Progression</h1>
+  <dl>
+    <dt>GitHub created for LawsForMe project</dt>
+        <dd>I think that is a lot of progress!</dd>
+    <dt>Database created on Reddwarf with tables</dt>
+        <dd>Wow we must have been the only group to have done that right? We are ahead of the game!</dd>
+    <dt>All team members have logged into Reddwarf</dt>
+        <dd>That is pretty funny Tory actually xD</dd>
+    <dt>Created UML to lay out the design of the program</dt>
+        <dd>Out of bullshit to say...</dd>
+  </dl>
+<!--
+  <h1 id="accessibility">Improved Accessibility</h1>
+  <p>This version of Gila has improved accessibility features for people with impaired vision.
+    The template tentatively conforms to the <a href="http://www.w3.org/TR/WCAG10"> <acronym>WCAG</acronym> double A rating</a> and <a href="http://www.access-board.gov/508.htm">&sect;&nbsp;508</a> guidelines for web content
+    accessibility. The relative simplicity of the template&rsquo;s underlying markup ensures that
+    your page can be easily transformed for rendering in aural, tactile (braille) and other
+    non-visual user agents.</p>
+  <p>Additionally, the majority of document metrics (widths, lengths and spacings) are font-size
+    relative. This means that a user can increase the default font size of your page (using their
+    browser) without compromising it&rsquo;s layout.</p>
+-->
+    {% endif %}
+</div>
+
+
+{% endblock %}}

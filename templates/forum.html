@@ -1,0 +1,52 @@
+{% extends 'template.html' %}
+
+{% block body %}
+    
+<!-- ##### Main Copy ##### -->
+    <script type="text/javascript">
+        function SelectElement(valueToSelect) {
+            var element = document.getElementById('soflow');
+            element.value = valueToSelect;
+        }
+    </script>
+
+
+
+
+    <form class = formSort method="post" action="/forum/" id="sub-form">
+        <input type="submit" value = "submit" id="lala">
+    </form>
+
+    <select class = formSort id="soflow" name="sort" form="sub-form">
+        <option value="num DESC">Most Comments</option>
+        <option value="num ASC">Least Comments</option>
+        <option value="created_at DESC">Most Recent</option>
+        <option value="created_at ASC">Least Recent</option>
+    </select>
+
+
+    <script type="text/javascript">
+            var my = '{{t}}';
+            SelectElement( my );
+    </script>
+
+
+
+    <table border = 2>
+        <th> Discussion Topics </th>
+        <th> <b>Number of Threads </b></th>
+        <th> Date Created </th>
+        <th> Last Modified </th>
+         {% for d in disc %}
+            <tr onclick="window.location.href = '{{ d[1] }}';">
+                <td> {{ d[2] }} </td>
+                <td> {{ d[0] }} </td>
+                <td> {{ d[4] }} </td>
+                <td> {{ d[5] }} </td>
+            </tr>
+         {% endfor %}
+      </table>
+
+
+
+{% endblock %}}

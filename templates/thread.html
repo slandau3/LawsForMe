@@ -1,0 +1,18 @@
+{% extends 'template.html' %}
+
+{% block body %}
+    
+<!-- ##### Main Copy ##### -->
+
+{% for t in com %}
+    <div class = 'thread' onclick="window.location.href = 'discussions/{{ t[1] }}';">
+        <h2>{{t[2]}}</h2>
+        <p>{{t[5]}}</p>
+        <p>No of Comments: {{ t[0] }}</p>
+        <!-- ##### <p>No of Comments: {{ t[0] }}</p> ##### -->
+    </div>
+{% endfor %}
+
+
+
+{% endblock %}}

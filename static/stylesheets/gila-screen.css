@@ -1,0 +1,514 @@
+/**********************************
+ * TITLE: Gila Screen Stylesheet  * 
+ * URI  : gila/gila-screen.css    *
+ * MODIF: 2003-Apr-30 19:09 +0800 *
+ **********************************/
+
+
+/* ##### Common Styles ##### */
+
+body {
+  color: black;
+  background-color: rgb(243,242,235);
+  font-family: verdana, helvetica, arial, sans-serif;
+  font-size: 73%;  /* Enables font size scaling in MSIE */
+  margin: 0;
+  padding: 0;
+}
+
+html > body {
+  font-size: 9pt;
+}
+
+acronym, .titleTip {
+  border-bottom: 20px dotted rgb(168,140,83);
+  cursor: help;
+  margin: 0;
+  padding: 0;
+}
+
+.doNotDisplay {
+  display: none !important;
+}
+
+
+.smallCaps {
+  font-size: 117%;
+  font-variant: small-caps;
+}
+
+
+/* ##### Header ##### */
+
+#header {
+  color: inherit;
+  background-color: rgb(122,66,67);
+}
+
+.headerTitle {
+  margin: 0;
+  padding: 0.25em 4mm 0.25em 4mm;
+}
+
+.headerTitle img{
+  width:210px;
+  height:100px;
+  border:0;
+}
+
+
+.headerTitle a {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+  font-size: 110%;  /* For MSIE */
+  font-weight: bold;
+  font-style: italic;
+}
+
+.headerTitle > a {
+  font-size: 200%;  /* For fully standards-compliant user agents */
+}
+
+.headerTitle span {
+  color: white;
+  background-color: transparent;
+  font-weight: normal;
+}
+
+.subHeader {
+  color: white;
+  background-color: black;
+  font-size: 109%;
+  text-align: center;
+  margin: 0;
+  padding: 0.5ex 0;
+}
+
+.subHeader a {
+  color: white;
+  background-color: black;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0;
+  padding: 0 1ex;
+}
+
+.subHeader a:hover {
+  color: black;
+  background-color: white;
+  transition: all 1000ms ease;
+}
+
+
+.login {
+    color: white;
+    float: right;
+    padding: 0.5ex 1ex;
+}
+
+
+.login a{
+    color: white;
+    font-size: 120%;
+    
+}
+/* ##### Left Side Bar ##### */
+
+.leftSideBar {
+  width: 12.5em;
+  float: left;
+  clear: left;
+}
+
+.leftSideBar .sideBarTitle {
+  color: rgb(64,64,64);
+  background-color: rgb(230,223,207);
+  font-weight: bold;
+  margin: 0;
+  padding: 0.8ex 1ex;
+}
+
+.leftSideBar ul {
+  list-style-type: none;
+  list-style-position: outside;
+  margin: 0 0 1em 0;
+  padding: 0;
+}
+
+.leftSideBar li {
+  margin: 1ex;
+  padding: 0 0 1.25ex 0.75ex;
+}
+
+.leftSideBar a {
+  color: rgb(166,140,83);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.leftSideBar a:hover {
+  color: rgb(64,64,64);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.leftSideBar .sideBarText {
+  color: rgb(166,140,83);
+  background-color: transparent;
+  line-height: 1.25em;
+  margin: 1ex 0.25ex 1.5em 0.75ex;
+  padding: 0;
+  display: block;
+}
+
+.leftSideBar .sideBarText a {
+  text-decoration: underline;
+}
+
+.leftSideBar .sideBarText a:hover {
+  text-decoration: none;
+}
+
+.leftSideBar .thisPage {
+  color: rgb(64,64,64);
+  background-color: transparent;
+  font-weight: bold;
+}
+
+
+/* ##### Right Side Bar ##### */
+
+.rightSideBar {
+  width: 13em;
+  margin: 2ex 0.75ex 0 0;
+  padding: 0;
+  float: right;
+  clear: right;
+  border: 1px solid rgb(216,210,195);
+}
+
+[class~="rightSideBar"] {
+  margin-right: 1.5ex;
+}
+
+.rightSideBar .sideBarTitle {
+  color: black;
+  background-color: rgb(230,223,207);
+  font-weight: bold;
+  margin: 1.25ex 1ex;
+  padding: 0.9ex 1ex;
+}
+
+.rightSideBar a {
+  color: rgb(166,140,83);
+  background-color: transparent;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.rightSideBar a:hover {
+  text-decoration: none;
+}
+
+.rightSideBar .sideBarText {
+  line-height: 1.5em;
+  margin: 0;
+  padding: 0 2ex 1em 2ex;
+}
+
+.rightSideBar .more {
+  text-decoration: none;
+  text-align: right;
+  margin: 0;
+  padding: 0 2ex 1em 2ex;
+  display: block;
+}
+
+.rightSideBar .more:hover {
+  text-decoration: underline;
+}
+
+
+/* ##### Main Copy ##### */
+
+#main-copy {
+  color: black;
+  background-color: white;
+  text-align: justify;
+  line-height: 1.5em;
+  margin: 0 0 0 12.5em;
+  padding: 0.5ex 15em 1em 1em;
+  border-left: 1px solid rgb(216,210,195);
+}
+
+#main-copy h1 {
+  color: rgb(166,140,83);
+  background-color: transparent;
+  font-family: arial, verdana, helvetica, sans-serif;
+  font-size: 175%;
+  font-weight: bold;
+  font-style: italic;
+  text-align: left;
+  margin: 1em 0 0 0;
+  padding: 1em 0 0 0;
+  border-top: 1px solid rgb(216,210,195);
+}
+
+#main-copy a {
+  color: rgb(168,140,83);
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+#main-copy a:hover {
+  text-decoration: none;
+}
+
+p {
+  margin: 1em 0 1.5em 0;
+  padding: 0;
+}
+
+dt {
+  font-weight: bold;
+  margin: 0;
+  padding: 0 0 0.5ex 0;
+}
+
+dd {
+  margin: 0 0 1.5em 1.5em;
+  padding: 0;
+}
+
+
+/* ##### Footer ##### */
+
+#footer {
+  color: black;
+  background-color: rgb(230,223,207);
+  font-size: 92%;
+  text-align: center;
+  line-height: 1.25em;
+  margin: 0;
+  padding: 1em 4mm 1em 4mm;
+  clear: both;
+}
+
+#footer div {
+  margin: 0;
+  padding: 0 0 1ex 0;
+}
+
+#footer a {
+  color: black;
+  background-color: transparent;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+#footer a:hover {
+  text-decoration: none;
+}
+
+/* ##### Login screen ##### */
+
+#login-screen {
+    background-color: white;
+    margin: 0 auto;
+    padding: 2em;
+    width: 30em;
+    text-align: center;
+    vertical-align: middle;
+    display: block;
+}
+
+#login-screen input{
+    padding: 1em;
+    width: 26em;
+    margin: 0.2em;
+}
+
+#login-screen button {
+    width: 28em;
+    padding: 1em;
+    margin: 0.7em;
+    background-color: rgb(122,66,67);
+    color: white;
+    border: none;
+
+}
+
+.LoginOptions{
+    padding: 2em;
+    margin: 0.5em;
+}
+
+.pull_left{
+    float: left;
+}
+
+.pull_right{
+    float: right;
+}
+
+
+/* ##### forum.html specific ##### */
+
+table, td, th {
+    border: none;
+}
+
+table {
+    border-collapse: collapse;
+    width: 70%;
+    text-align: center;
+    vertical-align: middle;
+    horiz-align: center;
+    margin: 0 auto;
+    margin-top:10px;
+}
+
+th {
+    height: 20px;
+    background-color: rgb(216,210,195);
+}
+
+th, td {
+    padding: 5px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+tr{
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    border-collapse: collapse;
+}
+
+
+tr:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+
+.formSort{
+  display: inline;
+  float: right;
+}
+
+
+#soflow {
+   -webkit-appearance: button;
+   -webkit-border-radius: 2px;
+   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+   -webkit-padding-end: 20px;
+   -webkit-padding-start: 2px;
+   -webkit-user-select: none;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+   background-position: 97% center;
+   background-repeat: no-repeat;
+   border: 1px solid #AAA;
+   color: #555;
+   font-size: inherit;
+   margin: 20px 1px;
+   overflow: hidden;
+   padding: 5px 10px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   width: 200px;
+}
+
+
+input[type=submit]{
+    background-color: rgb(122,66,67);
+    border: none;
+    color: white;
+    padding: 8px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 16px 15px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+
+input[type=submit]:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+/* ##### forum/<topic>.html specific ##### */
+
+.thread {
+  font-family: consolas;
+  border: 1px solid black;
+  border-radius: 3px;
+  width: 70%;
+  vertical-align: middle;
+  horiz-align: center;
+  margin: 0 auto;
+  margin-top:10px;
+}
+
+
+.thread h2{
+  background-color: rgb(216,210,195);
+
+}
+
+
+.thread:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+
+/* ##### comments.html specific ##### */
+
+.comments{
+  margin: 0 auto;
+  vertical-align: middle;
+  horiz-align: center;
+  padding-left: 160px;
+}
+
+.headz h3{
+  background-color: rgb(216,210,195);
+  width: 80%;
+  padding: 3px;
+  padding-left: 4px;
+
+}
+
+
+.headz div{
+  font-family: consolas;
+  border: 1px solid black;
+  border-radius: 3px;
+  width: 80%;
+  vertical-align: middle;
+  horiz-align: center;
+  margin-top:10px;
+  padding-left: 10px;
+}
+
+.headz form{
+  font-family: consolas;
+  border: 1px solid black;
+  border-radius: 3px;
+  width: 80%;
+  /*margin-top:10px;*/
+  margin: 10px 18.9%;
+  padding-left: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.resizedTextbox {
+  width: 90%;
+  height: 50px;
+}
