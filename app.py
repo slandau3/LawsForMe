@@ -1,5 +1,9 @@
 """
-TODO
+File: app.py
+Description: Main program for the LawsForMe program. Defines a set of routes that are
+             used to access and interact with the website.
+
+Authors: Steven Landau, Tory Leo, Talha Azhar
 """
 
 import json
@@ -67,7 +71,14 @@ def logout():
 @app.route('/login/', methods=['GET', 'POST'])
 def login():
     """
-    TODO
+    :GET: Render the "login.html" page
+
+    :POST: Attempt to validate the information the user
+           provided. If the data failed to validate
+           (invalid username or password) the login page
+           is rerendered with an error message at the appropriate
+           field(s). If the data is valid the user's session is 
+           assigned their uuid and redirected to the home page
     """
     if request.method == 'POST':
         # Attempt to obtain the username and password from the form
@@ -97,7 +108,14 @@ def login():
 @app.route('/createAccount/', methods=['GET', 'POST'])
 def create_account():
     """
-    TODO
+    :GET: Render the "createAccount.html" page
+
+    :POST: Submit the data in the "createAccount.html" page.
+           The data is verified and if an error occurs the page 
+           will be rerendered with an error message on the fields
+           that were invalid. If no such error occured the users
+           account will be created and they will be redirected to
+           the login page.
     """
     if request.method == 'GET':
         return render_template('createAccount.html')
@@ -121,17 +139,21 @@ def create_account():
         print(create_account_resp)
         if not create_account_resp['success']:
             return render_template("createAccount.html",
-                                   username = create_account_resp.get("username", ""),
-                                   password = create_account_resp.get("password", ""),
-                                   interests = create_account_resp.get("interests", ""))
+                                   username=create_account_resp.get("username", ""),
+                                   password=create_account_resp.get("password", ""),
+                                   interests=create_account_resp.get("interests", ""))
         else:
             session['uuid'] = create_account_resp.get('uuid')
             return redirect("/login/")
     else:
         raise NotImplementedError()
 
+
 @app.route('/forum/discussions/', methods=['GET'])
 def load_forum_discussions():
+    """
+    TODO
+    """
     if request.method == 'GET':
         discussions = db.getDiscussions()
         return None
