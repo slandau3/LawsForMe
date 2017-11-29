@@ -1,0 +1,38 @@
+{% extends 'template.html' %}
+
+{% block body %}
+<div id = interests>
+    <h3>Your Interests:</h3>
+    {% for x in i %}
+    <div>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;{{ x[0] }}</p>
+    </div>
+    {% endfor %}
+
+    <div id = addInterest>
+        <h3>Add Interest:</h3>
+        <form class = inter method="post" action="/account/" id="sub-form2">
+            <input type="text" name="daInterest" id="la2"><br>
+            <input type="submit" value = "submit" id="la1" name="addInt">
+        </form>
+    </div>
+
+
+
+
+    <h3>Delete Interest:</h3>
+    <div id = delInt>
+            <form class = formSort method="post" action="/account/" id="sub-form">
+            <input type="submit" value = "submit" id="lala">
+        </form>
+
+        <select class = formSort id="soflow" name="delete" form="sub-form">
+            {% for x in i %}
+                <option value="{{x[0]}}">{{x[0]}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+</div>
+
+{% endblock %}

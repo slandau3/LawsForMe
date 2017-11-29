@@ -348,6 +348,7 @@ def get_num_4_thread_sort(id, type):
 
 
 def add_comments(c, thread_id, user_id: uuid):
+    #adds comment to the SQL database
     conn, curr = __open_connections()
     curr.execute('INSERT INTO forum_comment(id, author, content, thread_id) \
                 VALUES ((SELECT MAX(id) FROM forum_comment) + 1, '
@@ -366,6 +367,7 @@ def add_comments(c, thread_id, user_id: uuid):
 
 
 def get_comments(idd):
+    # gets comment from the SQL database for display
     conn, curr = __open_connections()
 
     curr.execute('SELECT * '
@@ -385,6 +387,7 @@ def get_comments(idd):
 
 
 def get_words(word):
+    # gets the paragraphs of words/laws from the SQL database for display
     conn, curr = __open_connections()
 
     curr.execute('SELECT content FROM federal_law WHERE title LIKE %s', (word,));
@@ -398,12 +401,59 @@ def get_words(word):
     return response
 
 
+def get_interests(user_id):
+    # gets the interests of specific users from the SQL database for display
+
+    conn, curr = __open_connections()
+
+    curr.execute('SELECT interest FROM users_and_interests WHERE "user" = %s', (str(user_id),));
+
+    #    curr.execute('SELECT * FROM forum_comment WHERE forum_comment.thread_id = %s', (id,))
+
+    response = curr.fetchall()
+
+    __close_connections(conn, curr)
+
+    return response
+
+get_interests('1bc72b60-1c17-4db7-b61f-f0c45b1d7bfe')
+
+
+
+def add_interest(int, user_id):
+    #adds an interest to the specified users interest list
+    conn, curr = __open_connections()
+
+    curr.execute('INSERT INTO users_and_interests("user", interest) VALUES (%s,%s)', (str(user_id), int))
+
+    # don't remember if this is what it is
+    conn.commit()
+    __close_connections(conn, curr)
+
+    return 0
+
+
+def del_interest(delInt, user_id):
+    # deletes an interest to the specified users interest list
+    conn, curr = __open_connections()
+
+    curr.execute('DELETE FROM users_and_interests'
+                 ' WHERE "user" = %s AND interest LIKE %s', (str(user_id), delInt))
+
+    # don't remember if this is what it is
+    conn.commit()
+    __close_connections(conn, curr)
+
+    return 0
 
 
 
 #
 # MISC
 #
+
+
+
 def get_thread(id):
     conn, curr = __open_connections()
 
@@ -416,7 +466,6 @@ def get_thread(id):
     __close_connections(conn, curr)
 
     return response
-
 
 
 def __hash_password(password: str) -> str:
