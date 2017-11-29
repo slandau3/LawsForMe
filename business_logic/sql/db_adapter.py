@@ -17,9 +17,6 @@ import uuid
 import psycopg2 as psql
 from faker import Faker
 
-
-
-
 #
 # Standard DB
 #
@@ -356,9 +353,9 @@ def get_num_4_thread_sort(id, type):
 
 
 
-
 def add_comments(text, thread_id, user_id: uuid):
     conn, curr = __open_connections()
+    print("text is ", text)
     curr.execute('INSERT INTO forum_comment(author, content, thread_id)' 
                  'VALUES (%s, %s, %s)', (str(user_id), text, thread_id))
 
