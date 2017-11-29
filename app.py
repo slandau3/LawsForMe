@@ -51,6 +51,12 @@ def home():
     return render_template('index.html', logged_in=logged_in)
 
 
+@app.route('/cake/<haha>')
+def get(haha):
+    words = db.get_words(haha)
+    return render_template('wiki.html', paragraph = words)
+
+
 
 @app.route('/logout/', methods=['GET', 'POST'])
 def logout():
@@ -150,6 +156,7 @@ def create_account():
         raise NotImplementedError()
 
 
+
 @app.route('/forum/', methods=['GET', 'POST'])
 def load_forum_discussions():
     if request.method == 'GET':
@@ -165,13 +172,18 @@ def load_forum_discussions():
 
 
 
-@app.route('/forum/<form_name>')
+@app.route('/forum/<form_name>', methods=['GET', 'POST'])
 def load_threads(form_name):
     if request.method == 'GET':
         # threads = db.get_threads(form_name)
         num_comm = db.get_num_comments(form_name)
         # return render_template('thread.html', thr = threads)
-        return render_template('thread.html', com=num_comm, logged_in=__session_has_uuid())
+        return render_template('thread.html', com=num_comm, fn = form_name, logged_in=__session_has_uuid())
+    elif request.method == 'POST':
+        type = request.form.get('sort')
+        num_comm = db.get_num_4_thread_sort(form_name, type)
+        return render_template('thread.html', com=num_comm, t = type, fn = form_name, logged_in=__session_has_uuid())
+
 
 
 def __load_comments_get(next_name):

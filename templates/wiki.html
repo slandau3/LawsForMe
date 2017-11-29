@@ -1,0 +1,14 @@
+{% extends 'template.html' %}
+
+{% block body %}
+
+<p id="demo"></p>
+
+
+<script type="text/javascript">
+
+    document.getElementById("demo").innerHTML = "{{paragraph}}";
+
+</script>
+
+{% endblock %}}
