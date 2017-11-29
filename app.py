@@ -159,7 +159,7 @@ def load_forum_discussions():
     elif request.method == 'POST':
         type = request.form.get('sort')
         discussions = db.get_num_4_disc_sort(type)
-        return render_template('forum.html', disc=discussions, t = type, logged_in=__session_has_uuid())
+        return render_template('forum.html', disc=discussions, t=type, logged_in=__session_has_uuid())
 
 
 
@@ -171,7 +171,7 @@ def load_threads(form_name):
         # threads = db.get_threads(form_name)
         num_comm = db.get_num_comments(form_name)
         # return render_template('thread.html', thr = threads)
-        return render_template('thread.html', com=num_comm)
+        return render_template('thread.html', com=num_comm, logged_in=__session_has_uuid())
 
 
 def __load_comments_get(next_name):
