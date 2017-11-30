@@ -244,6 +244,7 @@ def load_interests():
         return render_template('account.html', i = interests, logged_in=__session_has_uuid())
 
 
+
     elif request.method == 'POST':
         user_id = session.get("uuid")
         int = request.form.get('daInterest')

@@ -420,7 +420,6 @@ def get_interests(user_id):
 
 
 
-
 def add_interest(int, user_id):
     #adds an interest to the specified users interest list
     conn, curr = __open_connections()
