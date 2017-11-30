@@ -158,7 +158,13 @@ def create_account():
 
 
 @app.route('/forum/', methods=['GET', 'POST'])
+
 def load_forum_discussions():
+    """
+        :GET: Render the "forum.html" page
+
+        :POST: Gets a sort request. Renders "forum.html" based on input
+    """
     if request.method == 'GET':
         discussions = db.get_num_4_disc()
         return render_template('forum.html', disc=discussions, logged_in=__session_has_uuid())
@@ -174,6 +180,11 @@ def load_forum_discussions():
 
 @app.route('/forum/<form_name>', methods=['GET', 'POST'])
 def load_threads(form_name):
+    """
+        :GET: Render the "thread.html" page
+
+        :POST: Gets a sort request. Renders "thread.html" based on input
+    """
     if request.method == 'GET':
         # threads = db.get_threads(form_name)
         num_comm = db.get_num_comments(form_name)
@@ -187,6 +198,9 @@ def load_threads(form_name):
 
 
 def __load_comments_get(next_name):
+    """
+            Helper function to load comments.
+        """
     thread = db.get_thread(next_name)
     comments = db.get_comments(next_name)
     # return render_template('thread.html', thr = threads)
@@ -195,6 +209,11 @@ def __load_comments_get(next_name):
 
 @app.route('/forum/discussions/<next_name>', methods=['GET', 'POST'])
 def load_comments(next_name):
+    """
+            :GET: Render the "comment.html" page
+
+            :POST: Gets the comments and then renders "comment.html" based on input
+        """
     if request.method == 'GET':
         return __load_comments_get(next_name)
     elif request.method == 'POST':
@@ -206,6 +225,45 @@ def load_comments(next_name):
         type = request.form.get('comment')
         db.add_comments(type, next_name, user_id)
         return __load_comments_get(next_name)
+
+
+
+@app.route('/account/', methods=['GET', 'POST'])
+def load_interests():
+    """
+        :GET: Render the "account.html" page
+
+        :POST: Gets a insert or delete request. Renders "account.html" based on input
+    """
+    if request.method == 'GET':
+        if not __session_has_uuid():
+            return "Please login"
+
+        user_id = session.get("uuid")
+        interests = db.get_interests(user_id)
+        return render_template('account.html', i = interests, logged_in=__session_has_uuid())
+
+
+
+    elif request.method == 'POST':
+        user_id = session.get("uuid")
+        int = request.form.get('daInterest')
+        if int:
+            db.add_interest(int, user_id)
+
+        delInt = request.form.get('delete')
+        error = None;
+        if delInt:
+            error = db.del_interest(delInt, user_id)
+
+        if error is not 0:
+            return """We currently do not have enough LAWS on the following topic. Please contact <b>help@st2.com</b>
+            for further assistance or click <a href="/account/">here</a> to return to our website"""
+
+
+        interests = db.get_interests(user_id)
+        return render_template('account.html', i=interests, logged_in=__session_has_uuid())
+
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -15,7 +15,7 @@ import hashlib
 import uuid
 
 import psycopg2 as psql
-from faker import Faker
+#from faker import Faker
 
 #
 # Standard DB
@@ -354,9 +354,10 @@ def get_num_4_thread_sort(id, type):
 
 
 def add_comments(text, thread_id, user_id: uuid):
+    # adds comment to the SQL database
     conn, curr = __open_connections()
     print("text is ", text)
-    curr.execute('INSERT INTO forum_comment(author, content, thread_id)' 
+    curr.execute('INSERT INTO forum_comment(author, content, thread_id)'
                  'VALUES (%s, %s, %s)', (str(user_id), text, thread_id))
 
     # don't remember if this is what it is
@@ -388,6 +389,7 @@ def get_comments(thread_id: int):
 
 
 def get_words(word):
+    # gets the paragraphs of words/laws from the SQL database for display
     conn, curr = __open_connections()
 
     curr.execute('SELECT content FROM federal_law WHERE title LIKE %s', (word,));
@@ -401,6 +403,52 @@ def get_words(word):
     return response
 
 
+def get_interests(user_id):
+    # gets the interests of specific users from the SQL database for display
+
+    conn, curr = __open_connections()
+
+    curr.execute('SELECT interest FROM users_and_interests WHERE "user" = %s', (str(user_id),));
+
+    #    curr.execute('SELECT * FROM forum_comment WHERE forum_comment.thread_id = %s', (id,))
+
+    response = curr.fetchall()
+
+    __close_connections(conn, curr)
+
+    return response
+
+
+
+def add_interest(int, user_id):
+    #adds an interest to the specified users interest list
+    conn, curr = __open_connections()
+    try:
+        curr.execute('INSERT INTO users_and_interests("user", interest) VALUES (%s,%s)', (str(user_id), int))
+    except psql.IntegrityError as ex:
+        if True:
+            return "We do not have data on the following topic yet."
+        else:
+            raise
+    # don't remember if this is what it is
+    conn.commit()
+    __close_connections(conn, curr)
+
+    return 0
+
+
+def del_interest(delInt, user_id):
+    # deletes an interest to the specified users interest list
+    conn, curr = __open_connections()
+
+    curr.execute('DELETE FROM users_and_interests'
+                 ' WHERE "user" = %s AND interest LIKE %s', (str(user_id), delInt))
+
+    # don't remember if this is what it is
+    conn.commit()
+    __close_connections(conn, curr)
+
+    return 0
 
 
 
@@ -522,21 +570,21 @@ def __test_grab_all_kinds():
 # uncomment the line below to run the test that prints out all discussions with corresponding threads
 #__test_grab_all_discussions()
 
-#get_num_4_disc_sort("created_at ASC")
+#get_num_4_disc_sort("created_at ASC ")
 
 
 # Fake data generation
-def gen_fake_data():
-    fake = Faker()
-
-    conn, curr = __open_connections()
-
-    for i in range(100):
-        add_comments(fake.paragraph(), 10, "72fdd3a0-f12e-443e-abe6-67aae41a19d3")
-
-
-
-    __close_connections(conn, curr)
+# def gen_fake_data():
+#     fake = Faker()
+#
+#     conn, curr = __open_connections()
+#
+#     for i in range(100):
+#         add_comments(fake.paragraph(), 10, "72fdd3a0-f12e-443e-abe6-67aae41a19d3")
+#
+#
+#
+#     __close_connections(conn, curr)
 
 
 

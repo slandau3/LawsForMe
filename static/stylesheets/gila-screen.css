@@ -350,7 +350,6 @@ dd {
 
 .pull_right{
     float: right;
-<<<<<<< HEAD
 }
 
 
@@ -513,6 +512,40 @@ input[type=submit]:hover {
   width: 90%;
   height: 50px;
 }
-=======
+
+/* ##### account.html specific ##### */
+
+#interests{
+    position: relative;
+    top: 43px;
+    left: 40px;
+
 }
->>>>>>> ed49f9cb1317778847417ddc02cb651b5981acb6
+
+
+#delInt{
+    position: relative;
+    right: 780px;
+    top: -20px;
+}
+
+
+#addInterest{
+    display: block;
+}
+
+#la2{
+    float: left;
+    width: 15.5%;
+    height: 23px;
+}
+
+#la1{
+    position: relative;
+    top: -33px;
+
+}
+
+
+
+
