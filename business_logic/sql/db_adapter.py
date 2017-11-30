@@ -15,7 +15,7 @@ import hashlib
 import uuid
 
 import psycopg2 as psql
-from faker import Faker
+#from faker import Faker
 
 #
 # Standard DB
@@ -418,7 +418,6 @@ def get_interests(user_id):
 
     return response
 
-get_interests('1bc72b60-1c17-4db7-b61f-f0c45b1d7bfe')
 
 
 
@@ -572,17 +571,17 @@ def __test_grab_all_kinds():
 
 
 # Fake data generation
-def gen_fake_data():
-    fake = Faker()
-
-    conn, curr = __open_connections()
-
-    for i in range(100):
-        add_comments(fake.paragraph(), 10, "72fdd3a0-f12e-443e-abe6-67aae41a19d3")
-
-
-
-    __close_connections(conn, curr)
+# def gen_fake_data():
+#     fake = Faker()
+#
+#     conn, curr = __open_connections()
+#
+#     for i in range(100):
+#         add_comments(fake.paragraph(), 10, "72fdd3a0-f12e-443e-abe6-67aae41a19d3")
+#
+#
+#
+#     __close_connections(conn, curr)
 
 
 
