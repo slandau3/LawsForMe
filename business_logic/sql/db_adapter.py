@@ -216,12 +216,12 @@ def get_laws_of_interests(user: uuid) -> dict:
 
     # Don't try to understand this query. Just know that it gets interests
     # and their corresponding laws from the db
-    curr.execute("select interest, title"
-                 " from (select laws.interest, laws.law"
-                 ' from (select interest from users_and_interests where "user" = %s) as interests'
-                 " JOIN interests_and_laws as laws"
-                 " on interests.interest = laws.interest)"
-                 " as t join federal_law as f on t.law = f.id",
+    curr.execute("SELECT interest, title"
+                 " FROM (SELECT laws.interest, laws.law"
+                 ' FROM (SELECT interest FROM users_and_interests WHERE "user" = %s) AS interests'
+                 " JOIN interests_and_laws AS laws"
+                 " ON interests.interest = laws.interest)"
+                 " AS t JOIN federal_law AS f ON t.law = f.id",
                  (str(user),))
 
 

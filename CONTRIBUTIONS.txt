@@ -1,0 +1,19 @@
+Steven Landau
+- Laid foundation for the project (setup flask, db, other stuff)
+- Created database schema/implemented it
+- Created numerous queries to the database
+- Wrote a lot of the backend code (pretty much everything having to do with loggin in/analyzing interests)
+- Created a lot of helper functions to be used with the database and created example queries which the rest of the team based their queries on
+
+Tory Leo
+- Created the "create account page"
+- Wrote backend code for error checking when creating an account
+- ...
+
+Talha Azhar
+- Made the website look (very) nice
+- Did the login page
+- Wrote the html for the forums as well as the backend python with queries
+- Added functionality to add comments to forum threads as well as organize discussons by various fields (most comments, newest, etc)
+- Pretty much everything that had to do with the forums (which is a significant portion of the website)
+- ...
