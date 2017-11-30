@@ -424,9 +424,13 @@ def get_interests(user_id):
 def add_interest(int, user_id):
     #adds an interest to the specified users interest list
     conn, curr = __open_connections()
-
-    curr.execute('INSERT INTO users_and_interests("user", interest) VALUES (%s,%s)', (str(user_id), int))
-
+    try:
+        curr.execute('INSERT INTO users_and_interests("user", interest) VALUES (%s,%s)', (str(user_id), int))
+    except psql.IntegrityError as ex:
+        if True:
+            return "We do not have data on the following topic yet."
+        else:
+            raise
     # don't remember if this is what it is
     conn.commit()
     __close_connections(conn, curr)

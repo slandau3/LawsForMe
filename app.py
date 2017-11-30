@@ -251,9 +251,14 @@ def load_interests():
             db.add_interest(int, user_id)
 
         delInt = request.form.get('delete')
+        error = None;
         if delInt:
-            db.del_interest(delInt, user_id)
-            print(delInt)
+            error = db.del_interest(delInt, user_id)
+
+        if error is not 0:
+            return """We currently do not have enough LAWS on the following topic. Please contact <b>help@st2.com</b>
+            for further assistance or click <a href="/account/">here</a> to return to our website"""
+
 
         interests = db.get_interests(user_id)
         return render_template('account.html', i=interests, logged_in=__session_has_uuid())
