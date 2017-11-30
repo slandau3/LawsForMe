@@ -15,9 +15,7 @@ import hashlib
 import uuid
 
 import psycopg2 as psql
-
-
-
+from faker import Faker
 
 #
 # Standard DB
@@ -260,6 +258,15 @@ def get_discussions():
 
     return response
 
+def create_discussion(title: str):
+    conn, curr = __open_connections()
+
+    curr.execute('INSERT INTO discussion(title) VALUES (%s)', (title,))
+
+    conn.commit()
+
+    __close_connections(conn, curr)
+
 def get_threads(id):
     #returns all the threads for display
     conn, curr = __open_connections()
@@ -346,14 +353,12 @@ def get_num_4_thread_sort(id, type):
 
 
 
-
-def add_comments(c, thread_id, user_id: uuid):
-    #adds comment to the SQL database
+def add_comments(text, thread_id, user_id: uuid):
+    # adds comment to the SQL database
     conn, curr = __open_connections()
-    curr.execute('INSERT INTO forum_comment(id, author, content, thread_id) \
-                VALUES ((SELECT MAX(id) FROM forum_comment) + 1, '
-                 '%s, %s, %s)', \
-                 (str(user_id), c, thread_id))
+    print("text is ", text)
+    curr.execute('INSERT INTO forum_comment(author, content, thread_id)'
+                 'VALUES (%s, %s, %s)', (str(user_id), text, thread_id))
 
     # don't remember if this is what it is
 
@@ -366,18 +371,15 @@ def add_comments(c, thread_id, user_id: uuid):
 
 
 
-def get_comments(idd):
-    # gets comment from the SQL database for display
+def get_comments(thread_id: int):
     conn, curr = __open_connections()
 
     curr.execute('SELECT * '
                  'FROM (SELECT * FROM "user") AS rsQuery1'
                  '  JOIN '
                  ' ( SELECT * FROM forum_comment WHERE forum_comment.thread_id = %s) AS rsQuery2 '
-                 ' ON rsQuery1.id = rsQuery2.author', (idd,))
+                 ' ON rsQuery1.id = rsQuery2.author', (thread_id,))
 
-
-#    curr.execute('SELECT * FROM forum_comment WHERE forum_comment.thread_id = %s', (id,))
 
     response = curr.fetchall()
 
@@ -448,12 +450,6 @@ def del_interest(delInt, user_id):
 
 
 
-#
-# MISC
-#
-
-
-
 def get_thread(id):
     conn, curr = __open_connections()
 
@@ -467,6 +463,19 @@ def get_thread(id):
 
     return response
 
+def create_thread(title: str, starter_text: str, discussion_id: int):
+    conn, curr = __open_connections()
+
+    curr.execute("INSERT INTO thread (title, starter_text, discussion_id) VALUES (%s, %s, %s)", (title, starter_text, discussion_id))
+
+    conn.commit()
+
+    __close_connections(conn, curr)
+
+
+#
+# MISC
+#
 
 def __hash_password(password: str) -> str:
     """
@@ -562,6 +571,25 @@ def __test_grab_all_kinds():
 #get_num_4_disc_sort("created_at ASC ")
 
 
-get_words("Partial-Birth Abortion Ban Act");
+# Fake data generation
+def gen_fake_data():
+    fake = Faker()
+
+    conn, curr = __open_connections()
+
+    for i in range(100):
+        add_comments(fake.paragraph(), 10, "72fdd3a0-f12e-443e-abe6-67aae41a19d3")
+
+
+
+    __close_connections(conn, curr)
+
+
+
+# gen_fake_data()
+#get_num_4_disc_sort("created_at ASC ")
+
+
+# get_words("Partial-Birth Abortion Ban Act");
 
 
