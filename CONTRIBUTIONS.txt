@@ -6,9 +6,9 @@ Steven Landau
 - Created a lot of helper functions to be used with the database and created example queries which the rest of the team based their queries on
 
 Tory Leo
-- Created the "create account page"
-- Wrote backend code for error checking when creating an account
-- ...
+- Created the 'create account' page
+- Wrote backend code for error checking when creating an account and logging in
+- Fixed backend bugs
 
 Talha Azhar
 - Made the website look (very) nice

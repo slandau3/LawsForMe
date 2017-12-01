@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="41507122-2969-4d26-823c-24ee2c633433" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CONTRIBUTIONS.txt" afterPath="$PROJECT_DIR$/CONTRIBUTIONS.txt" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/LawsForMe$LawsForMe.coverage" NAME="LawsForMe Coverage Results" MODIFIED="1512152758424" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="createAccount.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/createAccount.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="account.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/business_logic/account/account.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="db_adapter.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/business_logic/sql/db_adapter.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-379">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1512152645567" expanded="true" signature="1965:2020" ph="SELECT id FR... user" />
+                <marker date="1512152645567" expanded="true" signature="3787:3894" ph="INSERT INTO &quot;user&quot;... " />
+                <marker date="1512152645567" expanded="true" signature="4038:4144" ph="INSERT INTO address... " />
+                <marker date="1512152645567" expanded="true" signature="4294:4453" ph="INSERT INTO interests... " />
+                <marker date="1512152645567" expanded="true" signature="4521:4586" ph="INSERT INTO users_and_interests... " />
+                <marker date="1512152645567" expanded="true" signature="5188:5226" ph="SELECT 1 FRO... user" />
+                <marker date="1512152645567" expanded="true" signature="5902:5991" ph="SELECT id FR... federal_law" />
+                <marker date="1512152645567" expanded="true" signature="6199:6456" ph="INSERT INTO interests_and_laws... " />
+                <marker date="1512152645567" expanded="true" signature="6979:7331" ph="SELECT inter... interest" />
+                <marker date="1512152645567" expanded="true" signature="7028:7267" ph="SELECT laws.... interest" />
+                <marker date="1512152645567" expanded="true" signature="7085:7143" ph="SELECT inter... users_and_interests" />
+                <marker date="1512152645567" expanded="true" signature="7872:7896" ph="SELECT * FRO... discussion" />
+                <marker date="1512152645567" expanded="true" signature="8125:8166" ph="INSERT INTO discussion... " />
+                <marker date="1512152645567" expanded="true" signature="8355:8407" ph="SELECT * FRO... thread" />
+                <marker date="1512152645567" expanded="true" signature="8700:8984" ph="SELECT rsQue... discussion_id" />
+                <marker date="1512152645567" expanded="true" signature="8758:8830" ph="SELECT discu... thread" />
+                <marker date="1512152645567" expanded="true" signature="9284:9573" ph="SELECT * FRO... num" />
+                <marker date="1512152645567" expanded="true" signature="9300:9554" ph="SELECT rsQue... discussion_id" />
+                <marker date="1512152645567" expanded="true" signature="9355:9427" ph="SELECT discu... thread" />
+                <marker date="1512152645567" expanded="true" signature="9827:10147" ph="SELECT rsQue... thread_id" />
+                <marker date="1512152645567" expanded="true" signature="9885:9956" ph="SELECT threa... forum_comment" />
+                <marker date="1512152645567" expanded="true" signature="10026:10078" ph="SELECT * FRO... thread" />
+                <marker date="1512152645567" expanded="true" signature="10454:10755" ph="SELECT rsQue... thread_id" />
+                <marker date="1512152645567" expanded="true" signature="10509:10580" ph="SELECT threa... forum_comment" />
+                <marker date="1512152645567" expanded="true" signature="10625:10675" ph="SELECT * FRO... thread" />
+                <marker date="1512152645567" expanded="true" signature="11068:11160" ph="INSERT INTO forum_comment... " />
+                <marker date="1512152645567" expanded="true" signature="11405:11652" ph="SELECT * FRO... *" />
+                <marker date="1512152645567" expanded="true" signature="11440:11460" ph="SELECT * FRO... user" />
+                <marker date="1512152645567" expanded="true" signature="11523:11585" ph="SELECT * FRO... forum_comment" />
+                <marker date="1512152645567" expanded="true" signature="11914:11965" ph="SELECT conte... federal_law" />
+                <marker date="1512152645567" expanded="true" signature="12329:12387" ph="SELECT inter... users_and_interests" />
+                <marker date="1512152645567" expanded="true" signature="12757:12821" ph="INSERT INTO users_and_interests... " />
+                <marker date="1512152645567" expanded="true" signature="13269:13359" ph="DELETE FROM " />
+                <marker date="1512152645567" expanded="true" signature="13578:13619" ph="SELECT * FRO... thread" />
+                <marker date="1512152645567" expanded="true" signature="13891:13966" ph="INSERT INTO thread... " />
+                <marker date="1512152645567" expanded="true" signature="14487:14511" ph="select * FRO... discussion" />
+                <marker date="1512152645567" expanded="true" signature="14622:14699" ph="select * FRO... thread" />
+                <marker date="1512152645567" expanded="true" signature="14937:14962" ph="select * FRO... federal_law" />
+                <marker date="1512152645567" expanded="true" signature="15646:15683" ph="delete from " />
+                <marker date="1512152645567" expanded="true" signature="15750:15786" ph="delete from " />
+                <marker date="1512152645567" expanded="true" signature="15945:16010" ph="SELECT discu... thread" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="348" />
+    <option name="y" value="-9" />
+    <option name="width" value="976" />
+    <option name="height" value="1038" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="LawsForMe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LawsForMe" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LawsForMe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LawsForMe" type="462c0819:PsiDirectoryNode" />
+              <item name="business_logic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LawsForMe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LawsForMe" type="462c0819:PsiDirectoryNode" />
+              <item name="business_logic" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LawsForMe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LawsForMe" type="462c0819:PsiDirectoryNode" />
+              <item name="business_logic" type="462c0819:PsiDirectoryNode" />
+              <item name="sql" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LawsForMe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LawsForMe" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.LawsForMe">
+    <configuration name="LawsForMe" type="PythonConfigurationType" factoryName="Python" singleton="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="LawsForMe" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="41507122-2969-4d26-823c-24ee2c633433" name="Default" comment="" />
+      <created>1512152753330</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1512152753330</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12447917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32560706" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/templates/createAccount.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/business_logic/sql/db_adapter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-379">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1512152645567" expanded="true" signature="1965:2020" ph="SELECT id FR... user" />
+            <marker date="1512152645567" expanded="true" signature="3787:3894" ph="INSERT INTO &quot;user&quot;... " />
+            <marker date="1512152645567" expanded="true" signature="4038:4144" ph="INSERT INTO address... " />
+            <marker date="1512152645567" expanded="true" signature="4294:4453" ph="INSERT INTO interests... " />
+            <marker date="1512152645567" expanded="true" signature="4521:4586" ph="INSERT INTO users_and_interests... " />
+            <marker date="1512152645567" expanded="true" signature="5188:5226" ph="SELECT 1 FRO... user" />
+            <marker date="1512152645567" expanded="true" signature="5902:5991" ph="SELECT id FR... federal_law" />
+            <marker date="1512152645567" expanded="true" signature="6199:6456" ph="INSERT INTO interests_and_laws... " />
+            <marker date="1512152645567" expanded="true" signature="6979:7331" ph="SELECT inter... interest" />
+            <marker date="1512152645567" expanded="true" signature="7028:7267" ph="SELECT laws.... interest" />
+            <marker date="1512152645567" expanded="true" signature="7085:7143" ph="SELECT inter... users_and_interests" />
+            <marker date="1512152645567" expanded="true" signature="7872:7896" ph="SELECT * FRO... discussion" />
+            <marker date="1512152645567" expanded="true" signature="8125:8166" ph="INSERT INTO discussion... " />
+            <marker date="1512152645567" expanded="true" signature="8355:8407" ph="SELECT * FRO... thread" />
+            <marker date="1512152645567" expanded="true" signature="8700:8984" ph="SELECT rsQue... discussion_id" />
+            <marker date="1512152645567" expanded="true" signature="8758:8830" ph="SELECT discu... thread" />
+            <marker date="1512152645567" expanded="true" signature="9284:9573" ph="SELECT * FRO... num" />
+            <marker date="1512152645567" expanded="true" signature="9300:9554" ph="SELECT rsQue... discussion_id" />
+            <marker date="1512152645567" expanded="true" signature="9355:9427" ph="SELECT discu... thread" />
+            <marker date="1512152645567" expanded="true" signature="9827:10147" ph="SELECT rsQue... thread_id" />
+            <marker date="1512152645567" expanded="true" signature="9885:9956" ph="SELECT threa... forum_comment" />
+            <marker date="1512152645567" expanded="true" signature="10026:10078" ph="SELECT * FRO... thread" />
+            <marker date="1512152645567" expanded="true" signature="10454:10755" ph="SELECT rsQue... thread_id" />
+            <marker date="1512152645567" expanded="true" signature="10509:10580" ph="SELECT threa... forum_comment" />
+            <marker date="1512152645567" expanded="true" signature="10625:10675" ph="SELECT * FRO... thread" />
+            <marker date="1512152645567" expanded="true" signature="11068:11160" ph="INSERT INTO forum_comment... " />
+            <marker date="1512152645567" expanded="true" signature="11405:11652" ph="SELECT * FRO... *" />
+            <marker date="1512152645567" expanded="true" signature="11440:11460" ph="SELECT * FRO... user" />
+            <marker date="1512152645567" expanded="true" signature="11523:11585" ph="SELECT * FRO... forum_comment" />
+            <marker date="1512152645567" expanded="true" signature="11914:11965" ph="SELECT conte... federal_law" />
+            <marker date="1512152645567" expanded="true" signature="12329:12387" ph="SELECT inter... users_and_interests" />
+            <marker date="1512152645567" expanded="true" signature="12757:12821" ph="INSERT INTO users_and_interests... " />
+            <marker date="1512152645567" expanded="true" signature="13269:13359" ph="DELETE FROM " />
+            <marker date="1512152645567" expanded="true" signature="13578:13619" ph="SELECT * FRO... thread" />
+            <marker date="1512152645567" expanded="true" signature="13891:13966" ph="INSERT INTO thread... " />
+            <marker date="1512152645567" expanded="true" signature="14487:14511" ph="select * FRO... discussion" />
+            <marker date="1512152645567" expanded="true" signature="14622:14699" ph="select * FRO... thread" />
+            <marker date="1512152645567" expanded="true" signature="14937:14962" ph="select * FRO... federal_law" />
+            <marker date="1512152645567" expanded="true" signature="15646:15683" ph="delete from " />
+            <marker date="1512152645567" expanded="true" signature="15750:15786" ph="delete from " />
+            <marker date="1512152645567" expanded="true" signature="15945:16010" ph="SELECT discu... thread" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/business_logic/account/account.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
