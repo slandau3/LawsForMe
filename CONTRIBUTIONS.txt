@@ -12,8 +12,8 @@ Tory Leo
 
 Talha Azhar
 - Made the website look (very) nice
-- Did the login page
-- Wrote the html for the forums as well as the backend python with queries
-- Added functionality to add comments to forum threads as well as organize discussons by various fields (most comments, newest, etc)
+- Did the 'login' page
+- Wrote the html for the 'forums' as well as the backend python with queries to create and get discussions, threads and comments
+- Added functionality to add comments to threads as well as queries to sort discussons by various fields (most comments, newest, etc)
 - Pretty much everything that had to do with the forums (which is a significant portion of the website)
-- ...
+- Quries to update 'account' for adding/deleting interests
