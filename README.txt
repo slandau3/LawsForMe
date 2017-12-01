@@ -29,8 +29,13 @@ Flask is the framework that has been used
 
 WHEN CREATING AN ACCOUNT:
     - interests should be comma seperated
-    - The algorithm to determine what laws affect what interests is fairly basic at the moment so there may be many keywords that don't give any interests. Some examples of interests that will definitely yield results are: internet, fishing
+
+    - The algorithm to determine what laws affect what interests is fairly basic at the moment so there may be many keywords that don't give any interests. Some examples of interests that will definitely yield results are: internet, fishing, nature, hacking, dogs, and animals
+    
+    - NOTE: it takes a long time for the program to establish new interests that relate to laws so once you get to the home page you may need to wait and refresh a few times to see all the laws that correspond with your interests! The more interests you enter the longer it will take.
+    
     - If you do not enter a firstname or lastname, the word "none" will be displayed in a forum comment, should you make one
+    
     - Only username, password and interests are required to create an account!
 
 In the forums section you can sort discussions in various ways

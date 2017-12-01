@@ -203,7 +203,6 @@ def __load_comments_get(next_name):
         """
     thread = db.get_thread(next_name)
     comments = db.get_comments(next_name)
-    print(comments)
     # return render_template('thread.html', thr = threads)
     return render_template('comments.html', thr=thread, com=comments, nn=next_name, logged_in=__session_has_uuid())
 
