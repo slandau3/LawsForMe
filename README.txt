@@ -27,4 +27,12 @@ Notes:
 
 Flask is the framework that has been used
 
+WHEN CREATING AN ACCOUNT:
+    - interests should be comma seperated
+    - The algorithm to determine what laws affect what interests is fairly basic at the moment so there may be many keywords that don't give any interests. Some examples of interests that will definitely yield results are: internet, fishing
+    - If you do not enter a firstname or lastname, the word "none" will be displayed in a forum comment, should you make one
+    - Only username, password and interests are required to create an account!
+
+In the forums section you can sort discussions in various ways
+
 
